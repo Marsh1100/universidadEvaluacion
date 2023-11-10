@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Domain.Entities;
 using System.Reflection;
 
-namespace Persistence.Data;
+namespace Persistence;
 
 public partial class ApiDbContext : DbContext
 {
