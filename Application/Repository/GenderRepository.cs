@@ -12,4 +12,5 @@ public class GenderRepository : GenericRepository<Gender>, IGender
     {
        _context = context;
     }
+    
 }
