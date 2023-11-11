@@ -28,4 +28,14 @@ public class SubjectRepository : GenericRepository<Subject>, ISubject
                             .ToListAsync();
         return (totalRegistros, registros);
     }
+
+    public async Task<IEnumerable<Subject>> GetWithoutTeacher()
+    {
+        var subjects = await _context.Subjects
+                        .Include(a=> a.Grade)
+                        .Include(p=> p.Typesubject)
+                        .Where(s=> s.IdTeacher == null)
+                        .ToListAsync();
+        return subjects;
+    }
 }

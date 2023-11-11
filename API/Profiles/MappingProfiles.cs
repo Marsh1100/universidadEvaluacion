@@ -31,5 +31,9 @@ public class MappingProfiles : Profile
             .ReverseMap();
         CreateMap<Teacher, TeacherDto>()
             .ReverseMap();
+        CreateMap<Subject, SubjectWithoutTeacherDto>()
+            .ForMember(dest=>dest.Typesubject, origen=> origen.MapFrom(origen=> origen.Typesubject.Name))
+            .ForMember(dest=>dest.Grade, origen=> origen.MapFrom(origen=> origen.Grade.Name))
+            .ReverseMap();
     }
 }

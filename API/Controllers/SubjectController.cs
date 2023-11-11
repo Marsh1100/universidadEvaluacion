@@ -85,7 +85,6 @@ public class SubjectController : ApiBaseController
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
 
-
     public async Task<IActionResult> Delete(int id)
     {
         var result = await _unitOfWork.Subjects.GetByIdAsync(id);
@@ -98,6 +97,18 @@ public class SubjectController : ApiBaseController
         return NoContent();
     }
 
+    //----------------- Endpoint 15 ------------------------
+    //Devuelve un listado con las asignaturas que no tienen un profesor asignado.
+    [HttpGet("withoutTeacher")]
+    [MapToApiVersion("1.0")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<ActionResult<IEnumerable<SubjectWithoutTeacherDto>>> GetWithoutTeacher()
+    {
+        var result = await _unitOfWork.Subjects.GetWithoutTeacher();
+        return Ok(_mapper.Map<IEnumerable<SubjectWithoutTeacherDto>>(result));
+    }
+    
     
     
 }
