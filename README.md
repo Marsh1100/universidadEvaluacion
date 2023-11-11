@@ -13,4 +13,8 @@ Una universidad busca implementar una base de datos para gestionar la informaci√
  ```
  http://localhost:5000/api/Subject/withoutTeacher
  ```
-    
+16. Devuelve un listado con todos los departamentos que tienen alguna asignatura que no se haya impartido en ning√∫n curso escolar. El resultado debe mostrar el nombre del departamento y el nombre de la asignatura que no se haya impartido nunca.
+```
+http://localhost:5000/api/Departament/subjectDepartament2
+```
+

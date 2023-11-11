@@ -35,5 +35,10 @@ public class MappingProfiles : Profile
             .ForMember(dest=>dest.Typesubject, origen=> origen.MapFrom(origen=> origen.Typesubject.Name))
             .ForMember(dest=>dest.Grade, origen=> origen.MapFrom(origen=> origen.Grade.Name))
             .ReverseMap();
+        
+        CreateMap<Subject, DepartamentSubjectDto>()
+            .ForMember(dest=>dest.Departament, origen=> origen.MapFrom(origen=> origen.Teacher.Departament.Name))
+            .ForMember(dest=>dest.Subject, origen=> origen.MapFrom(origen=> origen.Name))
+            .ReverseMap();
     }
 }

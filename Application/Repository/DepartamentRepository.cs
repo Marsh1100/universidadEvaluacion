@@ -1,5 +1,6 @@
 using Domain.Entities;
 using Domain.Interfaces;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.EntityFrameworkCore;
 using Persistence;
 
@@ -28,5 +29,52 @@ public class DepartamentRepository : GenericRepository<Departament>, IDepartamen
                             .Take(pageSize)
                             .ToListAsync();
         return (totalRegistros, registros);
+    }
+
+    public async Task<IEnumerable<List<Subject>>> GetSubjectDepartament()
+    {
+        var subjects = await _context.Subjects
+                        .Include(o=> o.Teacher).ThenInclude(p=>p.Departament)
+                        .ToListAsync();
+        var tuitions = await _context.Studenttuitions
+                        .ToListAsync();
+
+        var result = (from subject in subjects
+                     join tuition in tuitions on subject.Id  equals tuition.IdSubject into g
+                     from all in g.DefaultIfEmpty()
+                     where all?.IdSubject == null
+                     select subjects).Distinct();
+        
+        return result;                             
+
+    }
+     public async Task<IEnumerable<object>> GetSubjectDepartament2()
+    {
+        var teachers = await _context.Teachers.Include(o=>o.Person).Include(p=>p.Departament).ToListAsync();
+        var subjects = await _context.Subjects
+                        .ToListAsync();
+        var tuitions = await _context.Studenttuitions
+                        .ToListAsync();
+
+        var result = (from subject in subjects
+                     join tuition in tuitions on subject.Id  equals tuition.IdSubject into g
+                     from all in g.DefaultIfEmpty()
+                     join teacher in teachers on subject.IdTeacher equals teacher.Id into h
+                     from all2 in h.DefaultIfEmpty()
+                     select  new {
+                        Departament = all2?.Departament.Name ?? "Sin profesor asignado",
+                        Subject = subject.Name,
+                        IdSubject = subject.Id,
+                        idSubject = all?.IdSubject ?? 0
+                     }).Where(a=> a.idSubject == 0)
+                     .Select(u=> new{
+                        u.Departament,
+                        u.Subject,
+                        u.IdSubject
+                     })
+                     .Distinct();
+        
+        return result;                             
+
     }
 }

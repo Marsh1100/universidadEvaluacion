@@ -99,9 +99,26 @@ public class DepartamentController : ApiBaseController
         await this._unitOfWork.SaveAsync();
         return NoContent();
     }
-        /*string strDate= modelPet.Birthdate.ToString("yyyy-MM-ddTHH:mm:ss.ffffffZ");;
-        DateTime.TryParseExact(strDate, "yyyy-MM-ddTHH:mm:ss.ffffffZ", null, DateTimeStyles.None, out DateTime parseDate1); */
-
+    //----------------- Endpoint 15 ------------------------
+    //Devuelve un listado con todos los departamentos que tienen alguna asignatura que no se haya impartido en ningún curso escolar. El resultado debe mostrar el nombre del departamento y el nombre de la asignatura que no se haya impartido nunca.
+    [HttpGet("subjectDepartament")]
+    [MapToApiVersion("1.0")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<ActionResult<IEnumerable<List<DepartamentSubjectDto>>>> GetSubjectDepartament()
+    {
+        var result = await _unitOfWork.Departaments.GetSubjectDepartament();
+        return Ok(_mapper.Map<IEnumerable<List<DepartamentSubjectDto>>>(result));
+    }
+    [HttpGet("subjectDepartament2")]
+    [MapToApiVersion("1.0")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<ActionResult> GetSubjectDepartament2()
+    {
+        var result = await _unitOfWork.Departaments.GetSubjectDepartament2();
+        return Ok(result);
+    }
     
     
 }
