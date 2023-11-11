@@ -22,16 +22,12 @@ Una universidad busca implementar una base de datos para gestionar la informaci�
     ```
 17. Devuelve el número total de **alumnas** que hay.
 
-     ```
+    ```
        http://localhost:5000/api/Person/womanStudents
-     ```
-
-    ```
-    http://localhost:5000/api/Departament/subjectDepartament2
     ```
 
-17. Devuelve el número total de **alumnas** que hay.
+18. Calcula cuántos alumnos nacieron en `1999`.
 
-     ```
-    
-     ```
+    ```
+    http://localhost:5000/api/Person/studentsBirthday1999
+    ```

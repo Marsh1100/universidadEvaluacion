@@ -29,6 +29,17 @@ public class PersonRepository : GenericRepository<Person>, IPerson
         return (totalRegistros, registros);
     }
 
+    public async Task<object> GetSbirthday1999()
+    {
+        DateOnly year1999start = new(1999,1,1);
+        DateOnly year1999end = new(1999,12,31);
+
+        var cant = await _context.People
+                    .Where(p=> p.Birthdate>= year1999start && p.Birthdate<= year1999end  && p.IdTypeperson ==1).CountAsync();
+        
+        return new { Number_of_Students = cant};
+    }
+
     public async Task<object> GetWomanStudents()
     {
         var cant = await _context.People

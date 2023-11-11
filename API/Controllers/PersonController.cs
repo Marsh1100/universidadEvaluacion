@@ -116,4 +116,15 @@ public class PersonController : ApiBaseController
         var result = await _unitOfWork.People.GetWomanStudents();
         return Ok(result);
     }
+    //----------------- Endpoint 18 ------------------------
+    // Calcula cuántos alumnos nacieron en `1999`.
+    [HttpGet("studentsBirthday1999")]
+    [MapToApiVersion("1.0")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<ActionResult> GetSbirthday1999()
+    {
+        var result = await _unitOfWork.People.GetSbirthday1999();
+        return Ok(result);
+    }
 }

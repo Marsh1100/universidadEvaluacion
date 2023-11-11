@@ -5,5 +5,6 @@ namespace Domain.Interfaces;
     public interface IPerson : IGenericRepository<Person> { 
     
     Task<object> GetWomanStudents();
+    Task<object> GetSbirthday1999();
     }
 
