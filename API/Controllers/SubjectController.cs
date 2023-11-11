@@ -108,7 +108,15 @@ public class SubjectController : ApiBaseController
         var result = await _unitOfWork.Subjects.GetWithoutTeacher();
         return Ok(_mapper.Map<IEnumerable<SubjectWithoutTeacherDto>>(result));
     }
-    
-    
-    
+    //----------------- Endpoint 25 ------------------------
+    //Devuelve un listado con el número de asignaturas que imparte cada profesor. El listado debe tener en cuenta aquellos profesores que no imparten ninguna asignatura. El resultado mostrará cinco columnas: id, nombre, primer apellido, segundo apellido y número de asignaturas. El resultado estará ordenado de mayor a menor por el número de asignaturas.
+    [HttpGet("subjectsByTeacher")]
+    [MapToApiVersion("1.0")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<ActionResult> GetSubjectsByTeacher()
+    {
+        var result = await _unitOfWork.Subjects.GetSubjectsByTeacher();
+        return Ok(result);
+    }
 }

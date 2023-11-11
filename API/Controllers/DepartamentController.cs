@@ -105,10 +105,10 @@ public class DepartamentController : ApiBaseController
     [MapToApiVersion("1.0")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
-    public async Task<ActionResult<IEnumerable<List<DepartamentSubjectDto>>>> GetSubjectDepartament()
+    public async Task<ActionResult<IEnumerable<DepartamentSubjectDto>>> GetSubjectDepartament()
     {
         var result = await _unitOfWork.Departaments.GetSubjectDepartament();
-        return Ok(_mapper.Map<IEnumerable<List<DepartamentSubjectDto>>>(result));
+        return Ok(_mapper.Map<IEnumerable<DepartamentSubjectDto>>(result));
     }
     [HttpGet("subjectDepartament2")]
     [MapToApiVersion("1.0")]

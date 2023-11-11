@@ -18,7 +18,7 @@ Una universidad busca implementar una base de datos para gestionar la informaci�
 16. Devuelve un listado con todos los departamentos que tienen alguna asignatura que no se haya impartido en ningún curso escolar. El resultado debe mostrar el nombre del departamento y el nombre de la asignatura que no se haya impartido nunca.
 
     ```
-    http://localhost:5000/api/Departament/subjectDepartament2
+    http://localhost:5000/api/Departament/subjectDepartament
     ```
 17. Devuelve el número total de **alumnas** que hay.
 
@@ -68,18 +68,18 @@ Una universidad busca implementar una base de datos para gestionar la informaci�
 
 25. Devuelve un listado con el número de asignaturas que imparte cada profesor. El listado debe tener en cuenta aquellos profesores que no imparten ninguna asignatura. El resultado mostrará cinco columnas: id, nombre, primer apellido, segundo apellido y número de asignaturas. El resultado estará ordenado de mayor a menor por el número de asignaturas.
 
-     ```sql
-       # Consulta Aqui
+     ```
+     http://localhost:5000/api/Subject/subjectsByTeacher
      ```
 
 26. Devuelve todos los datos del alumno más joven.
 
-     ```sql
-       # Consulta Aqui
+     ```
+       http://localhost:5000/api/Person/youngestStudent
      ```
 
 27. Devuelve un listado con los profesores que no están asociados a un departamento.
 
-     ```sql
-       # Consulta Aqui
+     ```
+       http://localhost:5000/api/Person/teachersWithoutDepartment
      ```

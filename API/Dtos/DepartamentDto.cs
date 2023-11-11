@@ -14,6 +14,4 @@ public class DepartamentSubjectDto
     public string Departament { get; set; }   
     public string Subject { get; set; }   
 
-    public int Id { get; set; }
-
 }

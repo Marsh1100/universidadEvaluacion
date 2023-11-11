@@ -127,4 +127,27 @@ public class PersonController : ApiBaseController
         var result = await _unitOfWork.People.GetSbirthday1999();
         return Ok(result);
     }
+    //----------------- Endpoint 26 ------------------------
+    //Devuelve todos los datos del alumno más joven.
+    [HttpGet("youngestStudent")]
+    [MapToApiVersion("1.0")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<ActionResult<IEnumerable<PersonAllDto>>> GetYoungestStudent()
+    {
+        var result = await _unitOfWork.People.GetYoungestStudent();
+        return _mapper.Map<List<PersonAllDto>>(result);
+    }
+
+    //----------------- Endpoint 27 ------------------------
+    //Devuelve un listado con los profesores que no están asociados a un departamento
+    [HttpGet("teachersWithoutDepartment")]
+    [MapToApiVersion("1.0")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<ActionResult> GetTeachersWithoutDepartment()
+    {
+        var result = await _unitOfWork.People.GetTeachersWithoutDepartment();
+        return Ok(result);
+    }
 }

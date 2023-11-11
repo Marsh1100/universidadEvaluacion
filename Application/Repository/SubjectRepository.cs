@@ -29,6 +29,24 @@ public class SubjectRepository : GenericRepository<Subject>, ISubject
         return (totalRegistros, registros);
     }
 
+    //Devuelve un listado con el número de asignaturas que imparte cada profesor. El listado debe tener en cuenta aquellos profesores que no imparten ninguna asignatura. El resultado mostrará cinco columnas: id, nombre, primer apellido, segundo apellido y número de asignaturas. El resultado estará ordenado de mayor a menor por el número de asignaturas.
+    public async Task<IEnumerable<object>> GetSubjectsByTeacher()
+    {
+        var subjects = await _context.Teachers
+                        .Include(o=>o.Person)
+                        .Select(o=> new
+                        {
+                            Id = o.Id,
+                            o.Person.Name,
+                            o.Person.Lastname1,
+                            o.Person.Lastname2,
+                            Num_of_subjects = o.Subjects.Count()
+                        })
+                        .OrderByDescending(a=>a.Num_of_subjects)
+                        .ToListAsync();
+        return subjects;
+    }
+
     public async Task<IEnumerable<Subject>> GetWithoutTeacher()
     {
         var subjects = await _context.Subjects

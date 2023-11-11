@@ -6,5 +6,8 @@ namespace Domain.Interfaces;
     
     Task<object> GetWomanStudents();
     Task<object> GetSbirthday1999();
+
+    Task<IEnumerable<Person>> GetYoungestStudent();
+    Task<IEnumerable<object>> GetTeachersWithoutDepartment();
     }
 

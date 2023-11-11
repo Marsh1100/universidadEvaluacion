@@ -47,4 +47,35 @@ public class PersonRepository : GenericRepository<Person>, IPerson
         
         return new { Number_of_Women = cant};
     }
+
+    public async Task<IEnumerable<Person>> GetYoungestStudent()
+    {
+        var year = await _context.People
+                        .OrderByDescending(c=> c.Birthdate)
+                        .Select(s=> s.Birthdate)
+                        .FirstOrDefaultAsync();
+
+        var student = await _context.People
+                        .Include(a=> a.Gender)
+                        .Where(a=>a.IdTypeperson == 1 && a.Birthdate == year)
+                        .ToListAsync();
+
+        return student;
+    }
+
+    public async Task<IEnumerable<object>> GetTeachersWithoutDepartment()
+    {
+        var peopleteachers = await _context.People.Where(e=>e.IdTypeperson==2).ToListAsync();
+        var teachers = await _context.Teachers.ToListAsync();
+
+        var result = (from personteacher in peopleteachers
+                        join teacher in teachers on personteacher.Id equals teacher.IdPerson into h
+                        from all in h.DefaultIfEmpty()
+                        where  all?.IdDepartament == null
+                        select new {
+                            Teacher = personteacher.Name + " " + personteacher.Lastname1+" "+ personteacher.Lastname2
+                        })
+                        .Distinct();
+        return result;
+    }
 }

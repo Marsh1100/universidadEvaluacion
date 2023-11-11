@@ -31,7 +31,7 @@ public class DepartamentRepository : GenericRepository<Departament>, IDepartamen
         return (totalRegistros, registros);
     }
 
-    public async Task<IEnumerable<List<Subject>>> GetSubjectDepartament()
+    public async Task<IEnumerable<Subject>> GetSubjectDepartament()
     {
         var subjects = await _context.Subjects
                         .Include(o=> o.Teacher).ThenInclude(p=>p.Departament)
@@ -43,7 +43,20 @@ public class DepartamentRepository : GenericRepository<Departament>, IDepartamen
                      join tuition in tuitions on subject.Id  equals tuition.IdSubject into g
                      from all in g.DefaultIfEmpty()
                      where all?.IdSubject == null
-                     select subjects).Distinct();
+                     select new Subject
+                     {
+                        Name = subject.Name,
+                        Credit = subject.Credit,
+                        IdTypesubject = subject.IdTypesubject,
+                        Course = subject.Course,
+                        FourMonthPeriod = subject.FourMonthPeriod,
+                        IdTeacher = subject.IdTeacher,
+                        IdGrade = subject.IdGrade,
+                        Grade = subject.Grade,
+                        Teacher = subject.Teacher,
+                        Typesubject = subject.Typesubject
+
+                     }).Distinct();
         
         return result;                             
 

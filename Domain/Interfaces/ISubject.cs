@@ -4,5 +4,8 @@ namespace Domain.Interfaces;
 
 public interface ISubject : IGenericRepository<Subject> { 
    Task<IEnumerable<Subject>> GetWithoutTeacher(); 
+   Task<IEnumerable<object>> GetSubjectsByTeacher();
 }
+
+
 

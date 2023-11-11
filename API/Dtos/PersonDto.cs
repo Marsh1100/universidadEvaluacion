@@ -28,3 +28,19 @@ public class PersonDto
     public int IdTypeperson { get; set; }
     
 }
+
+public class PersonAllDto
+{
+    public int Id { get; set; }
+    public string Nit { get; set; }
+    public string Name { get; set; }
+    public string Lastname1 { get; set; }
+    public string Lastname2 { get; set; }
+    public string City { get; set; }
+    public string Address { get; set; }
+    public string Phone { get; set; }
+    public DateOnly Birthdate { get; set; }
+    public string Gender { get; set; }
+}
+
+
