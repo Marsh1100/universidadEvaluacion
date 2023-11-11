@@ -23,7 +23,7 @@ Una universidad busca implementar una base de datos para gestionar la informaci�
 17. Devuelve el número total de **alumnas** que hay.
 
     ```
-       http://localhost:5000/api/Person/womanStudents
+    http://localhost:5000/api/Person/womanStudents
     ```
 
 18. Calcula cuántos alumnos nacieron en `1999`.
@@ -59,4 +59,27 @@ Una universidad busca implementar una base de datos para gestionar la informaci�
 
      ```
      http://localhost:5000/api/Grade/subjectsTypeByGrades
+     ```
+24. Devuelve un listado que muestre cuántos alumnos se han matriculado de alguna asignatura en cada uno de los cursos escolares. El resultado deberá mostrar dos columnas, una columna con el año de inicio del curso escolar y otra con el número de alumnos matriculados.
+
+     ```
+     http://localhost:5000/api/Schoolyear/studentsTuition/
+     ```
+
+25. Devuelve un listado con el número de asignaturas que imparte cada profesor. El listado debe tener en cuenta aquellos profesores que no imparten ninguna asignatura. El resultado mostrará cinco columnas: id, nombre, primer apellido, segundo apellido y número de asignaturas. El resultado estará ordenado de mayor a menor por el número de asignaturas.
+
+     ```sql
+       # Consulta Aqui
+     ```
+
+26. Devuelve todos los datos del alumno más joven.
+
+     ```sql
+       # Consulta Aqui
+     ```
+
+27. Devuelve un listado con los profesores que no están asociados a un departamento.
+
+     ```sql
+       # Consulta Aqui
      ```

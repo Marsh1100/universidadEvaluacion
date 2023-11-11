@@ -100,6 +100,18 @@ public class SchoolyearController : ApiBaseController
         return NoContent();
     }
 
+    //------------------- Endpoint 24 ---------------------------------
+    //Devuelve un listado que muestre cuántos alumnos se han matriculado de alguna asignatura en cada uno de los cursos escolares. El resultado deberá mostrar dos columnas, una columna con el año de inicio del curso escolar y otra con el número de alumnos matriculados.
+    [HttpGet("studentsTuition/{idSubject}")]
+    [MapToApiVersion("1.0")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<ActionResult> GetSstudentsTuition(int idSubject)
+    {
+        var result = await _unitOfWork.Schoolyears.GetStudentsTuition(idSubject);
+        return Ok(result);
+    }
+
     
     
 }
