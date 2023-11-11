@@ -83,3 +83,27 @@ Una universidad busca implementar una base de datos para gestionar la informaci√
      ```
        http://localhost:5000/api/Person/teachersWithoutDepartment
      ```
+
+28. Devuelve un listado con los departamentos que no tienen profesores asociados.
+
+     ```
+       http://localhost:5000/api/Departament/departamentsWithoutTeachers
+     ```
+
+29. Devuelve un listado con los profesores que tienen un departamento asociado y que no imparten ninguna asignatura.
+
+     ```sql
+       # Consulta Aqui
+     ```
+
+30. Devuelve un listado con las asignaturas que no tienen un profesor asignado.
+
+     ```sql
+       # Consulta Aqui
+     ```
+
+31. Devuelve un listado con todos los departamentos que no han impartido asignaturas en ning√∫n curso escolar.
+
+     ```sql
+       # Consulta Aqui
+     ```

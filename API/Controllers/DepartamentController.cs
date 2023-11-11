@@ -145,6 +145,17 @@ public class DepartamentController : ApiBaseController
         var result = await _unitOfWork.Departaments.GetTeachersByDepartmentAll();
         return Ok(result);
     }
+    //----------------- Endpoint 28 ------------------------
+    //Devuelve un listado con los departamentos que no tienen profesores asociados.
+    [HttpGet("departamentsWithoutTeachers")]
+    [MapToApiVersion("1.0")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<ActionResult> GetDepartamentsWithoutTeachers()
+    {
+        var result = await _unitOfWork.Departaments.GetDepartamentsWithoutTeachers();
+        return Ok(result);
+    }
     
     
 }

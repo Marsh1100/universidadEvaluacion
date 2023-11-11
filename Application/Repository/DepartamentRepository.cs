@@ -31,6 +31,22 @@ public class DepartamentRepository : GenericRepository<Departament>, IDepartamen
         return (totalRegistros, registros);
     }
 
+    public async Task<IEnumerable<object>> GetDepartamentsWithoutTeachers()
+    {
+        var teachers = await _context.Teachers.ToListAsync();
+        var departaments = await _context.Departaments.ToListAsync();
+
+        var result = (from departament in departaments
+                        join teacher in teachers on departament.Id equals teacher.IdDepartament into h
+                        from all in h.DefaultIfEmpty()
+                        where  all?.IdDepartament == null
+                        select new {
+                            Departament = departament.Name
+                        })
+                        .Distinct();
+        return result;
+    }
+
     public async Task<IEnumerable<Subject>> GetSubjectDepartament()
     {
         var subjects = await _context.Subjects
