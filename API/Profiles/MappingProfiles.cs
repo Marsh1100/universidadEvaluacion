@@ -21,5 +21,15 @@ public class MappingProfiles : Profile
             .ReverseMap();
         CreateMap<Person, PersonDto>()
             .ReverseMap();
+        CreateMap<Departament, DepartamentDto>()
+            .ReverseMap();
+        CreateMap<Grade, GradeDto>()
+            .ReverseMap();
+        CreateMap<Schoolyear, SchoolyearDto>()
+            .ReverseMap();
+        CreateMap<Subject, SubjectDto>()
+            .ReverseMap();
+        CreateMap<Teacher, TeacherDto>()
+            .ReverseMap();
     }
 }

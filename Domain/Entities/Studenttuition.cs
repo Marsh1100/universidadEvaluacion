@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Domain.Entities;
 
-public partial class Studenttuition : BaseEntity
+public partial class Studenttuition 
 {
     public int IdPerson { get; set; }
 

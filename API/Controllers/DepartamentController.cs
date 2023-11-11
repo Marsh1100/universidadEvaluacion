@@ -30,30 +30,30 @@ public class DepartamentController : ApiBaseController
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
 
-    public async Task<ActionResult<IEnumerable<PersonDto>>> Get()
+    public async Task<ActionResult<IEnumerable<DepartamentDto>>> Get()
     {
-        var result = await _unitOfWork.People.GetAllAsync();
-        return _mapper.Map<List<PersonDto>>(result);
+        var result = await _unitOfWork.Departaments.GetAllAsync();
+        return _mapper.Map<List<DepartamentDto>>(result);
     }
     
     [HttpGet]
     [MapToApiVersion("1.1")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
-    public async Task<ActionResult<Pager<PersonDto>>> GetPagination([FromQuery] Params p)
+    public async Task<ActionResult<Pager<DepartamentDto>>> GetPagination([FromQuery] Params p)
     {
-        var (totalRegistros, registros) = await _unitOfWork.People.GetAllAsync(p.PageIndex, p.PageSize, p.Search);
-        var resultDto = _mapper.Map<List<PersonDto>>(registros);
-        return  new Pager<PersonDto>(resultDto,totalRegistros, p.PageIndex, p.PageSize, p.Search);
+        var (totalRegistros, registros) = await _unitOfWork.Departaments.GetAllAsync(p.PageIndex, p.PageSize, p.Search);
+        var resultDto = _mapper.Map<List<DepartamentDto>>(registros);
+        return  new Pager<DepartamentDto>(resultDto,totalRegistros, p.PageIndex, p.PageSize, p.Search);
     }
     [HttpPost()]
     [MapToApiVersion("1.0")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
-    public async Task<ActionResult<Person>> Post([FromBody] PersonDto dto)
+    public async Task<ActionResult<Departament>> Post([FromBody] DepartamentDto dto)
     {
-        var result = _mapper.Map<Person>(dto);
-        this._unitOfWork.People.Add(result);
+        var result = _mapper.Map<Departament>(dto);
+        this._unitOfWork.Departaments.Add(result);
         await _unitOfWork.SaveAsync();
 
         if(result == null)
@@ -70,11 +70,11 @@ public class DepartamentController : ApiBaseController
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
 
 
-    public async Task<ActionResult<Person>> put(PersonDto dto)
+    public async Task<ActionResult<Departament>> put(DepartamentDto dto)
     {
         if(dto == null){ return NotFound(); }
-        var result = this._mapper.Map<Person>(dto);
-        this._unitOfWork.People.Update(result);
+        var result = this._mapper.Map<Departament>(dto);
+        this._unitOfWork.Departaments.Update(result);
         Console.WriteLine(await this._unitOfWork.SaveAsync());
 
 
@@ -90,12 +90,12 @@ public class DepartamentController : ApiBaseController
 
     public async Task<IActionResult> Delete(int id)
     {
-        var result = await _unitOfWork.People.GetByIdAsync(id);
+        var result = await _unitOfWork.Departaments.GetByIdAsync(id);
         if(result == null)
         {
             return NotFound();
         }
-        this._unitOfWork.People.Remove(result);
+        this._unitOfWork.Departaments.Remove(result);
         await this._unitOfWork.SaveAsync();
         return NoContent();
     }
