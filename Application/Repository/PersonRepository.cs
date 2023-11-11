@@ -28,4 +28,12 @@ public class PersonRepository : GenericRepository<Person>, IPerson
                             .ToListAsync();
         return (totalRegistros, registros);
     }
+
+    public async Task<object> GetWomanStudents()
+    {
+        var cant = await _context.People
+                    .Where(p=> p.IdGender == 2 && p.IdTypeperson==1).CountAsync();
+        
+        return new { Number_of_Women = cant};
+    }
 }

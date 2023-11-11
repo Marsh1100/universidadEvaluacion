@@ -105,5 +105,15 @@ public class PersonController : ApiBaseController
         await this._unitOfWork.SaveAsync();
         return NoContent();
     }
-    
+    //----------------- Endpoint 17 ------------------------
+    //Devuelve el número total de **alumnas** que hay.
+    [HttpGet("womanStudents")]
+    [MapToApiVersion("1.0")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<ActionResult> GetWomanStudents()
+    {
+        var result = await _unitOfWork.People.GetWomanStudents();
+        return Ok(result);
+    }
 }
