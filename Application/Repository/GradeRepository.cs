@@ -28,4 +28,42 @@ public class GradeRepository : GenericRepository<Grade>, IGrade
                             .ToListAsync();
         return (totalRegistros, registros);
     }
+
+    public async Task<IEnumerable<object>> GetSubjectsbyGrades()
+    {
+        var grades = await _context.Grades.Include(e=>e.Subjects)
+                    .Select(a=> new{
+                        Grade = a.Name,
+                        Num_of_subjects= a.Subjects.Count()
+                    })
+                    .OrderByDescending(a=>a.Num_of_subjects)
+                    .ToListAsync();
+        
+        return grades;
+
+    }
+   
+    public async Task<IEnumerable<object>> GetMore40subject()
+    {
+        var grades = await _context.Grades.Include(e=>e.Subjects).ThenInclude(u=>u.Typesubject)
+                    .Where(a=> a.Subjects.Count()> 40)
+                    .Select(a=> new{
+                        Grade = a.Name,
+                        Num_of_subjects= a.Subjects.Count()
+                    })
+                    .ToListAsync();
+        return grades;
+    }
+    public async Task<IEnumerable<object>> GetSubjectsTypeByGrades()
+    {
+        var grades = await _context.Grades.Include(e=>e.Subjects).ThenInclude(u=>u.Typesubject)
+                    .Select(a=> new{
+                        Grade = a.Name,
+                        Type_subject = a.Subjects.Select(a=>a.Typesubject.Name).FirstOrDefault() ?? "No hay asignaturas asociadas al grado",
+                        Num_of_credits= a.Subjects.Sum(a=>a.Credit)
+                    })
+                    .OrderByDescending(p=>p.Num_of_credits)
+                    .ToListAsync();
+        return grades;
+    }
 }
