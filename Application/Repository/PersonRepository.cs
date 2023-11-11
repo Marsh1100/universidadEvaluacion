@@ -16,7 +16,7 @@ public class PersonRepository : GenericRepository<Person>, IPerson
 
     public override async Task<(int totalRegistros, IEnumerable<Person> registros)> GetAllAsync(int pageIndex, int pageSize, string search)
     {
-        var query = _context.Users as IQueryable<Person>;
+        var query = _context.People as IQueryable<Person>;
         if(!string.IsNullOrEmpty(search))
         {
             query = query.Where(p=>p.Name.ToLower().Contains(search));

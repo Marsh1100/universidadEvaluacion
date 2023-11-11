@@ -16,7 +16,7 @@ public class SubjectRepository : GenericRepository<Subject>, ISubject
 
     public override async Task<(int totalRegistros, IEnumerable<Subject> registros)> GetAllAsync(int pageIndex, int pageSize, string search)
     {
-        var query = _context.Users as IQueryable<Subject>;
+        var query = _context.Subjects as IQueryable<Subject>;
         if(!string.IsNullOrEmpty(search))
         {
             query = query.Where(p=>p.Name.ToLower().Contains(search));

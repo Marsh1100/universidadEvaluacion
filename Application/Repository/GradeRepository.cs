@@ -16,7 +16,7 @@ public class GradeRepository : GenericRepository<Grade>, IGrade
 
     public override async Task<(int totalRegistros, IEnumerable<Grade> registros)> GetAllAsync(int pageIndex, int pageSize, string search)
     {
-        var query = _context.Users as IQueryable<Grade>;
+        var query = _context.Grades as IQueryable<Grade>;
         if(!string.IsNullOrEmpty(search))
         {
             query = query.Where(p=>p.Name.ToLower().Contains(search));
