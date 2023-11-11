@@ -19,8 +19,6 @@ public class SubjectConfiguration : IEntityTypeConfiguration<Subject>
 
             builder.HasIndex(e => e.IdGrade, "FK_idGrade");
 
-            builder.HasIndex(e => e.IdTeacher, "FK_idTeacher");
-
             builder.HasIndex(e => e.IdTypesubject, "FK_idTypesubject");
 
             builder.Property(e => e.Id).HasColumnName("id");

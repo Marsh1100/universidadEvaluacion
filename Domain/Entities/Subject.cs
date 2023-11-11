@@ -15,7 +15,7 @@ public partial class Subject : BaseEntity
 
     public sbyte FourMonthPeriod { get; set; }
 
-    public int IdTeacher { get; set; }
+    public int? IdTeacher { get; set; }
 
     public int IdGrade { get; set; }
 

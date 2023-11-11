@@ -45,11 +45,9 @@ public class PersonConfiguration : IEntityTypeConfiguration<Person>
                 .HasMaxLength(25)
                 .HasColumnName("name");
             builder.Property(e => e.Nit)
-                .IsRequired()
                 .HasMaxLength(15)
                 .HasColumnName("nit");
             builder.Property(e => e.Phone)
-                .IsRequired()
                 .HasMaxLength(15)
                 .HasColumnName("phone");
 
