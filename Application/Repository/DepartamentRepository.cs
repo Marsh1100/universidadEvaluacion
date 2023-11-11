@@ -77,4 +77,29 @@ public class DepartamentRepository : GenericRepository<Departament>, IDepartamen
         return result;                             
 
     }
+
+    public async Task<IEnumerable<object>> GetTeachersByDepartment()
+    {
+        var result = await _context.Departaments
+                        .Where(d=> d.Teachers.Count()>0)
+                        .Select(a=> new{
+                            Departament = a.Name,
+                            Num_of_teachers = a.Teachers.Count()
+                        })
+                        .OrderByDescending(e=> e.Num_of_teachers)
+                        .ToListAsync();
+
+        return result;
+    }
+    public async Task<IEnumerable<object>> GetTeachersByDepartmentAll()
+    {
+        var result = await _context.Departaments
+                        .Select(a=> new{
+                            Departament = a.Name,
+                            Num_of_teachers = a.Teachers.Count()
+                        })
+                        .ToListAsync();
+
+        return result;
+    }
 }

@@ -119,6 +119,32 @@ public class DepartamentController : ApiBaseController
         var result = await _unitOfWork.Departaments.GetSubjectDepartament2();
         return Ok(result);
     }
+
+    //----------------- Endpoint 19 ------------------------
+    //Calcula cuántos profesores hay en cada departamento. El resultado sólo debe mostrar dos columnas, una con el nombre del departamento y otra con el número de profesores que hay en ese departamento.
+    
+    [HttpGet("teachersByDepartment")]
+    [MapToApiVersion("1.0")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<ActionResult> GetTeachersByDepartment()
+    {
+        var result = await _unitOfWork.Departaments.GetTeachersByDepartment();
+        return Ok(result);
+    }
+
+    //----------------- Endpoint 20 ------------------------
+    //Devuelve un listado con todos los departamentos y el número de profesores que hay en cada uno de ellos. Tenga en cuenta que pueden existir departamentos que no tienen profesores asociados. Estos departamentos también tienen que aparecer en el listado.
+    
+    [HttpGet("teachersByDepartmentAll")]
+    [MapToApiVersion("1.0")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<ActionResult> GetTeachersByDepartmentAll()
+    {
+        var result = await _unitOfWork.Departaments.GetTeachersByDepartmentAll();
+        return Ok(result);
+    }
     
     
 }

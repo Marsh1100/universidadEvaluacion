@@ -31,3 +31,14 @@ Una universidad busca implementar una base de datos para gestionar la informaci�
     ```
     http://localhost:5000/api/Person/studentsBirthday1999
     ```
+19. Calcula cuántos profesores hay en cada departamento. El resultado sólo debe mostrar dos columnas, una con el nombre del departamento y otra con el número de profesores que hay en ese departamento. El resultado sólo debe incluir los departamentos que tienen profesores asociados y deberá estar ordenado de mayor a menor por el número de profesores.
+
+     ```
+     http://localhost:5000/api/Departament/teachersByDepartment
+     ```
+
+20. Devuelve un listado con todos los departamentos y el número de profesores que hay en cada uno de ellos. Tenga en cuenta que pueden existir departamentos que no tienen profesores asociados. Estos departamentos también tienen que aparecer en el listado.
+
+     ```
+     http://localhost:5000/api/Departament/teachersByDepartmentAll
+     ```
