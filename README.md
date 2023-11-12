@@ -7,6 +7,7 @@ Datos a insertar [Click aquí](https://github.com/Marsh1100/universidadEvaluacio
 
 # CRUD
 En cada uno de los controladores se realizó el CRUD correspondiente de las tablas. En el siguiente link [Peticiones](https://github.com/Marsh1100/universidadEvaluacion/blob/main/api-university.postman_collection), es un archivo contenido en el proyecto, puede importarse a Postman o Insomia para visualizar cada una de las peticiones realizadas.
+# Endpoints
 
 1. Devuelve un listado con el primer apellido, segundo apellido y el nombre de todos los alumnos. El listado deberá estar ordenado alfabéticamente de menor a mayor por el primer apellido, segundo apellido y nombre.
 
