@@ -107,5 +107,25 @@ public class TeacherController : ApiBaseController
         return Ok(result);
     }
     
+    //----------------- Endpoint 12 ------------------------
+    //Devuelve un listado con los nombres de **todos** los profesores y los departamentos que tienen vinculados. El listado también debe mostrar aquellos profesores que no tienen ningún departamento asociado. El listado debe devolver cuatro columnas, nombre del departamento, primer apellido, segundo apellido y nombre del profesor. El resultado estará ordenado alfabéticamente de menor a mayor por el nombre del departamento, apellidos y el nombre.
+    [HttpGet("allTeachersDep")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<ActionResult<IEnumerable<object>>> GetAllTeachersDep()
+    {
+        var entities = await _unitOfWork.Teachers.GetAllTeachersDep();
+        return Ok(entities);
+    }
+    //----------------- Endpoint 13 ------------------------
+    //Devuelve un listado con los profesores que no están asociados a un departamento.Devuelve un listado con los departamentos que no tienen profesores asociados.
+    [HttpGet("teacherWithoutDepartament")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<ActionResult<IEnumerable<object>>> GetTeacherWithoutDepartament()
+    {
+        var entities = await _unitOfWork.Teachers.GetTeacherWithoutDepartament();
+        return Ok(entities);
+    }
     
 }

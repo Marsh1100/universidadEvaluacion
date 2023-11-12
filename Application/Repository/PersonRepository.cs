@@ -17,17 +17,17 @@ public class PersonRepository : GenericRepository<Person>, IPerson
     public async Task<IEnumerable<object>> GetTeachersWithoutSubject()
     {
         var teachers = await _context.Teachers
-            .Where(d => d.Subjects.All(q => q == null))
-            .Select(p =>new
-                {
-                    p.Person.Lastname1,
-                    p.Person.Lastname2,
-                    p.Person.Name
-                }
-            ).OrderBy(p => p.Lastname1)
-            .ThenBy(p => p.Lastname2)
-            .ThenBy(p => p.Name)
-            .ToListAsync();
+                        .Where(d => d.Subjects.All(q => q == null))
+                        .Select(p =>new
+                            {
+                                p.Person.Lastname1,
+                                p.Person.Lastname2,
+                                p.Person.Name
+                            }
+                        ).OrderBy(p => p.Lastname1)
+                        .ThenBy(p => p.Lastname2)
+                        .ThenBy(p => p.Name)
+                        .ToListAsync();
 
         return teachers;
     }
@@ -144,11 +144,11 @@ public class PersonRepository : GenericRepository<Person>, IPerson
     public async Task<IEnumerable<Person>> GetAllStudents()
     {
         var students = await _context.People
-            .Where(e => e.IdTypeperson == 1)
-            .OrderBy(p => p.Lastname1)
-            .ThenBy(p => p.Lastname2)
-            .ThenBy(p => p.Name)
-            .ToListAsync();
+                        .Where(e => e.IdTypeperson == 1)
+                        .OrderBy(p => p.Lastname1)
+                        .ThenBy(p => p.Lastname2)
+                        .ThenBy(p => p.Name)
+                        .ToListAsync();
         return students;
     }
 
@@ -177,5 +177,19 @@ public class PersonRepository : GenericRepository<Person>, IPerson
             .ToListAsync();
 
         return teachers;
+    }
+    //11. Devuelve un listado con todos los alumnos que se han matriculado en alguna asignatura durante el curso escolar 2018/2019.
+    public async Task<IEnumerable<object>> GetStudents2018_2019()
+    {
+        var students = await _context.Studenttuitions
+                        .Include(a=>a.Person)
+                        .Include(b=> b.Schoolyear)
+                        .Where(b=> b.Schoolyear.YearStart == 2018 && b.Schoolyear.YearEnd == 2019)
+                        .Select(s=> new{
+                            Student = s.Person.Name +" "+ s.Person.Lastname1+" "+s.Person.Lastname2
+                        }).Distinct()
+                        .ToListAsync();
+
+        return students;
     }
 }

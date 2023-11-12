@@ -9,8 +9,8 @@ namespace Domain.Interfaces;
     Task<IEnumerable<Person>> GetWomansGrade();
     Task<IEnumerable<Person>> GetYoungestStudent();
     Task<IEnumerable<object>> GetTeachersWithoutDepartment();
-
     Task<object> GetStudentNif();
+    Task<IEnumerable<object>> GetStudents2018_2019();
     Task<IEnumerable<object>> GetTeachersWithOutSubject();
     Task<IEnumerable<object>> GetTeachersWithoutSubject();
     Task<IEnumerable<Person>> GetAllStudents();

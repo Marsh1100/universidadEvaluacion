@@ -62,20 +62,20 @@ Una universidad busca implementar una base de datos para gestionar la informaci�
 
 11. Devuelve un listado con todos los alumnos que se han matriculado en alguna asignatura durante el curso escolar 2018/2019.
 
-     ```sql
-       # Consulta Aqui
+     ```
+     http://localhost:5000/api/Person/students2018_2019
      ```
 
 12. Devuelve un listado con los nombres de **todos** los profesores y los departamentos que tienen vinculados. El listado también debe mostrar aquellos profesores que no tienen ningún departamento asociado. El listado debe devolver cuatro columnas, nombre del departamento, primer apellido, segundo apellido y nombre del profesor. El resultado estará ordenado alfabéticamente de menor a mayor por el nombre del departamento, apellidos y el nombre.
 
-     ```sql
-       # Consulta Aqui
+     ```
+     http://localhost:5000/api/Teacher/allTeachersDep
      ```
 
 13. Devuelve un listado con los profesores que no están asociados a un departamento.Devuelve un listado con los departamentos que no tienen profesores asociados.
 
-     ```sql
-       # Consulta Aqui
+     ```
+     http://localhost:5000/api/Teacher/teacherWithoutDepartament
      ```
 
 14. Devuelve un listado con los profesores que no imparten ninguna asignatura.

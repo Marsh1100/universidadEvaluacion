@@ -170,8 +170,18 @@ public class PersonController : ApiBaseController
         var result = await _unitOfWork.People.GetStudentNif();
         return Ok(result);
     }
-
-
+    //----------------- Endpoint 11 ------------------------
+    // Devuelve un listado con todos los alumnos que se han matriculado en alguna asignatura durante el curso escolar 2018/2019.
+    [HttpGet("students2018_2019")]
+    [MapToApiVersion("1.0")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<ActionResult> GetStudents2018_2019()
+    {
+        var result = await _unitOfWork.People.GetStudents2018_2019();
+        return Ok(result);
+    }
+    
     //----------------- Endpoint 14 ------------------------
     // Devuelve un listado con los profesores que no imparten ninguna asignatura.
     [HttpGet("teachersWithoutSubject")]
