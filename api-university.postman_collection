@@ -1,0 +1,925 @@
+{
+	"info": {
+		"_postman_id": "097d5b91-f7e9-4426-acff-43e5276d42e3",
+		"name": "z-api-university",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "28473639"
+	},
+	"item": [
+		{
+			"name": "person",
+			"item": [
+				{
+					"name": "post",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"Name\": \"Fabiola\",\n  \"Nit\":\"123\",\n  \"Lastname1\":\"Lopez\",\n  \"Lastname2\": \"Gonzales\",\n  \"City\": \"Bucaramanga\",\n  \"Address\": \"fabiola@gmail.com\",\n  \"Phone\":\"3001234567\",\n  \"Birthdate\":\"2023-10-22\",\n  \"IdGender\":2,\n  \"IdTypeperson\":1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:5000/api/Person"
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"Id\":25,\n    \"Name\": \"Julian\",\n    \"Nit\":\"123\",\n    \"Lastname1\":\"Lopez\",\n    \"Lastname2\": \"Gonzales\",\n    \"City\": \"Bucaramanga\",\n    \"Address\": \"fabiola@gmail.com\",\n    \"Phone\":\"3001234567\",\n    \"Birthdate\":\"2023-10-22\",\n    \"IdGender\":1,\n    \"IdTypeperson\":2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:5000/api/Person"
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "http://localhost:5000/api/Person/25"
+					},
+					"response": []
+				},
+				{
+					"name": "get",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJzYXJhNzgiLCJqdGkiOiI0ODMzYzdlNy0wY2JkLTQzNWItYWJmNy05M2QwMzMyOWJhYzMiLCJlbWFpbCI6InNhcmFAZ21haWwuY29tIiwidWlkIjoiMiIsInJvbGVzIjoiQWRtaW5pc3RyYXRvciIsImV4cCI6MTY5NTgzMjk5NCwiaXNzIjoiTXlTdG9yZUFwaSIsImF1ZCI6Ik15U3RvcmVBcGlVc2VyIn0.VDbJe720WliuJMK3apsth6yz8sJoxRS4J-0k5zkEE0A"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/Person?ver=1.1&search=salvador",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"Person"
+							],
+							"query": [
+								{
+									"key": "ver",
+									"value": "1.1"
+								},
+								{
+									"key": "search",
+									"value": "salvador"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "departament",
+			"item": [
+				{
+					"name": "post",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"Name\": \"Física\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:5000/api/Departament"
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"Id\":10,\n    \"Name\":\"ASDSD\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:5000/api/Departament"
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "http://localhost:5000/api/Departament/10"
+					},
+					"response": []
+				},
+				{
+					"name": "get",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJzYXJhNzgiLCJqdGkiOiI0ODMzYzdlNy0wY2JkLTQzNWItYWJmNy05M2QwMzMyOWJhYzMiLCJlbWFpbCI6InNhcmFAZ21haWwuY29tIiwidWlkIjoiMiIsInJvbGVzIjoiQWRtaW5pc3RyYXRvciIsImV4cCI6MTY5NTgzMjk5NCwiaXNzIjoiTXlTdG9yZUFwaSIsImF1ZCI6Ik15U3RvcmVBcGlVc2VyIn0.VDbJe720WliuJMK3apsth6yz8sJoxRS4J-0k5zkEE0A"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:5000/api/Departament"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "grade",
+			"item": [
+				{
+					"name": "post",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"Name\": \"Física fbjdn\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:5000/api/Grade"
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"Id\":10,\n    \"Name\":\"Grado en Química (Plan 2009)\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:5000/api/Grade"
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "http://localhost:5000/api/Grade/11"
+					},
+					"response": []
+				},
+				{
+					"name": "get",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJzYXJhNzgiLCJqdGkiOiI0ODMzYzdlNy0wY2JkLTQzNWItYWJmNy05M2QwMzMyOWJhYzMiLCJlbWFpbCI6InNhcmFAZ21haWwuY29tIiwidWlkIjoiMiIsInJvbGVzIjoiQWRtaW5pc3RyYXRvciIsImV4cCI6MTY5NTgzMjk5NCwiaXNzIjoiTXlTdG9yZUFwaSIsImF1ZCI6Ik15U3RvcmVBcGlVc2VyIn0.VDbJe720WliuJMK3apsth6yz8sJoxRS4J-0k5zkEE0A"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/Grade?ver=1.1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"Grade"
+							],
+							"query": [
+								{
+									"key": "ver",
+									"value": "1.1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "teacher",
+			"item": [
+				{
+					"name": "post",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"IdPerson\": 2,\n  \"IdDepartament\":1\n \n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:5000/api/Teacher"
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"Id\":13,\n    \"IdPerson\": 1,\n    \"IdDepartament\":1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:5000/api/Teacher"
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "http://localhost:5000/api/Teacher/13"
+					},
+					"response": []
+				},
+				{
+					"name": "get",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJzYXJhNzgiLCJqdGkiOiI0ODMzYzdlNy0wY2JkLTQzNWItYWJmNy05M2QwMzMyOWJhYzMiLCJlbWFpbCI6InNhcmFAZ21haWwuY29tIiwidWlkIjoiMiIsInJvbGVzIjoiQWRtaW5pc3RyYXRvciIsImV4cCI6MTY5NTgzMjk5NCwiaXNzIjoiTXlTdG9yZUFwaSIsImF1ZCI6Ik15U3RvcmVBcGlVc2VyIn0.VDbJe720WliuJMK3apsth6yz8sJoxRS4J-0k5zkEE0A"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:5000/api/Teacher"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "schoolyear",
+			"item": [
+				{
+					"name": "post",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"YearEnd\":\"2024\",\n    \"YearStart\":\"2023\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:5000/api/Schoolyear"
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"Id\":6,\n    \"YearEnd\":\"2025\",\n    \"YearStart\":\"2023\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:5000/api/Schoolyear"
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "http://localhost:5000/api/Schoolyear/6"
+					},
+					"response": []
+				},
+				{
+					"name": "get",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJzYXJhNzgiLCJqdGkiOiI0ODMzYzdlNy0wY2JkLTQzNWItYWJmNy05M2QwMzMyOWJhYzMiLCJlbWFpbCI6InNhcmFAZ21haWwuY29tIiwidWlkIjoiMiIsInJvbGVzIjoiQWRtaW5pc3RyYXRvciIsImV4cCI6MTY5NTgzMjk5NCwiaXNzIjoiTXlTdG9yZUFwaSIsImF1ZCI6Ik15U3RvcmVBcGlVc2VyIn0.VDbJe720WliuJMK3apsth6yz8sJoxRS4J-0k5zkEE0A"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:5000/api/Schoolyear"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "subject",
+			"item": [
+				{
+					"name": "post",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"Name\": \"SSSS\",\n  \"Credit\":6,\n  \"IdTypesubject\":1,\n  \"Course\": 2,\n  \"FourMonthPeriod\":1,\n  \"IdTeacher\": 2,\n  \"IdGrade\":3\n \n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:5000/api/Subject"
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"Id\":13,\n    \"Credit\":6,\n    \"IdTypesubject\":1,\n    \"Course\": 2,\n    \"FourMonthPeriod\":1,\n    \"IdTeacher\": 2,\n    \"IdGrade\":3\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:5000/api/Subject"
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "http://localhost:5000/api/Subject/2"
+					},
+					"response": []
+				},
+				{
+					"name": "get",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJzYXJhNzgiLCJqdGkiOiI0ODMzYzdlNy0wY2JkLTQzNWItYWJmNy05M2QwMzMyOWJhYzMiLCJlbWFpbCI6InNhcmFAZ21haWwuY29tIiwidWlkIjoiMiIsInJvbGVzIjoiQWRtaW5pc3RyYXRvciIsImV4cCI6MTY5NTgzMjk5NCwiaXNzIjoiTXlTdG9yZUFwaSIsImF1ZCI6Ik15U3RvcmVBcGlVc2VyIn0.VDbJe720WliuJMK3apsth6yz8sJoxRS4J-0k5zkEE0A"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/Subject?ver=1.1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"Subject"
+							],
+							"query": [
+								{
+									"key": "ver",
+									"value": "1.1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "endpoints",
+			"item": [
+				{
+					"name": "end1",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJzYXJhNzgiLCJqdGkiOiI0ODMzYzdlNy0wY2JkLTQzNWItYWJmNy05M2QwMzMyOWJhYzMiLCJlbWFpbCI6InNhcmFAZ21haWwuY29tIiwidWlkIjoiMiIsInJvbGVzIjoiQWRtaW5pc3RyYXRvciIsImV4cCI6MTY5NTgzMjk5NCwiaXNzIjoiTXlTdG9yZUFwaSIsImF1ZCI6Ik15U3RvcmVBcGlVc2VyIn0.VDbJe720WliuJMK3apsth6yz8sJoxRS4J-0k5zkEE0A"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:5000/api/Person/allStudents"
+					},
+					"response": []
+				},
+				{
+					"name": "end2",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJzYXJhNzgiLCJqdGkiOiI0ODMzYzdlNy0wY2JkLTQzNWItYWJmNy05M2QwMzMyOWJhYzMiLCJlbWFpbCI6InNhcmFAZ21haWwuY29tIiwidWlkIjoiMiIsInJvbGVzIjoiQWRtaW5pc3RyYXRvciIsImV4cCI6MTY5NTgzMjk5NCwiaXNzIjoiTXlTdG9yZUFwaSIsImF1ZCI6Ik15U3RvcmVBcGlVc2VyIn0.VDbJe720WliuJMK3apsth6yz8sJoxRS4J-0k5zkEE0A"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:5000/api/Person/studentsWithoutPhone"
+					},
+					"response": []
+				},
+				{
+					"name": "end3",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJzYXJhNzgiLCJqdGkiOiI0ODMzYzdlNy0wY2JkLTQzNWItYWJmNy05M2QwMzMyOWJhYzMiLCJlbWFpbCI6InNhcmFAZ21haWwuY29tIiwidWlkIjoiMiIsInJvbGVzIjoiQWRtaW5pc3RyYXRvciIsImV4cCI6MTY5NTgzMjk5NCwiaXNzIjoiTXlTdG9yZUFwaSIsImF1ZCI6Ik15U3RvcmVBcGlVc2VyIn0.VDbJe720WliuJMK3apsth6yz8sJoxRS4J-0k5zkEE0A"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:5000/api/Person/Students1999"
+					},
+					"response": []
+				},
+				{
+					"name": "end4",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJzYXJhNzgiLCJqdGkiOiI0ODMzYzdlNy0wY2JkLTQzNWItYWJmNy05M2QwMzMyOWJhYzMiLCJlbWFpbCI6InNhcmFAZ21haWwuY29tIiwidWlkIjoiMiIsInJvbGVzIjoiQWRtaW5pc3RyYXRvciIsImV4cCI6MTY5NTgzMjk5NCwiaXNzIjoiTXlTdG9yZUFwaSIsImF1ZCI6Ik15U3RvcmVBcGlVc2VyIn0.VDbJe720WliuJMK3apsth6yz8sJoxRS4J-0k5zkEE0A"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:5000/api/Person/TeacherWithoutPhoneK"
+					},
+					"response": []
+				},
+				{
+					"name": "end5",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJzYXJhNzgiLCJqdGkiOiI0ODMzYzdlNy0wY2JkLTQzNWItYWJmNy05M2QwMzMyOWJhYzMiLCJlbWFpbCI6InNhcmFAZ21haWwuY29tIiwidWlkIjoiMiIsInJvbGVzIjoiQWRtaW5pc3RyYXRvciIsImV4cCI6MTY5NTgzMjk5NCwiaXNzIjoiTXlTdG9yZUFwaSIsImF1ZCI6Ik15U3RvcmVBcGlVc2VyIn0.VDbJe720WliuJMK3apsth6yz8sJoxRS4J-0k5zkEE0A"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:5000/api/Subject/subjectsCourse3"
+					},
+					"response": []
+				},
+				{
+					"name": "end6",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJzYXJhNzgiLCJqdGkiOiI0ODMzYzdlNy0wY2JkLTQzNWItYWJmNy05M2QwMzMyOWJhYzMiLCJlbWFpbCI6InNhcmFAZ21haWwuY29tIiwidWlkIjoiMiIsInJvbGVzIjoiQWRtaW5pc3RyYXRvciIsImV4cCI6MTY5NTgzMjk5NCwiaXNzIjoiTXlTdG9yZUFwaSIsImF1ZCI6Ik15U3RvcmVBcGlVc2VyIn0.VDbJe720WliuJMK3apsth6yz8sJoxRS4J-0k5zkEE0A"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:5000/api/Person/womansGrade"
+					},
+					"response": []
+				},
+				{
+					"name": "end7",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJzYXJhNzgiLCJqdGkiOiI0ODMzYzdlNy0wY2JkLTQzNWItYWJmNy05M2QwMzMyOWJhYzMiLCJlbWFpbCI6InNhcmFAZ21haWwuY29tIiwidWlkIjoiMiIsInJvbGVzIjoiQWRtaW5pc3RyYXRvciIsImV4cCI6MTY5NTgzMjk5NCwiaXNzIjoiTXlTdG9yZUFwaSIsImF1ZCI6Ik15U3RvcmVBcGlVc2VyIn0.VDbJe720WliuJMK3apsth6yz8sJoxRS4J-0k5zkEE0A"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:5000/api/Subject/subjectsGrade4"
+					},
+					"response": []
+				},
+				{
+					"name": "end8",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJzYXJhNzgiLCJqdGkiOiI0ODMzYzdlNy0wY2JkLTQzNWItYWJmNy05M2QwMzMyOWJhYzMiLCJlbWFpbCI6InNhcmFAZ21haWwuY29tIiwidWlkIjoiMiIsInJvbGVzIjoiQWRtaW5pc3RyYXRvciIsImV4cCI6MTY5NTgzMjk5NCwiaXNzIjoiTXlTdG9yZUFwaSIsImF1ZCI6Ik15U3RvcmVBcGlVc2VyIn0.VDbJe720WliuJMK3apsth6yz8sJoxRS4J-0k5zkEE0A"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:5000/api/Teacher/teacherAndDepartament"
+					},
+					"response": []
+				},
+				{
+					"name": "end9",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJzYXJhNzgiLCJqdGkiOiI0ODMzYzdlNy0wY2JkLTQzNWItYWJmNy05M2QwMzMyOWJhYzMiLCJlbWFpbCI6InNhcmFAZ21haWwuY29tIiwidWlkIjoiMiIsInJvbGVzIjoiQWRtaW5pc3RyYXRvciIsImV4cCI6MTY5NTgzMjk5NCwiaXNzIjoiTXlTdG9yZUFwaSIsImF1ZCI6Ik15U3RvcmVBcGlVc2VyIn0.VDbJe720WliuJMK3apsth6yz8sJoxRS4J-0k5zkEE0A"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:5000/api/Person/studentNif"
+					},
+					"response": []
+				},
+				{
+					"name": "end10",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJzYXJhNzgiLCJqdGkiOiI0ODMzYzdlNy0wY2JkLTQzNWItYWJmNy05M2QwMzMyOWJhYzMiLCJlbWFpbCI6InNhcmFAZ21haWwuY29tIiwidWlkIjoiMiIsInJvbGVzIjoiQWRtaW5pc3RyYXRvciIsImV4cCI6MTY5NTgzMjk5NCwiaXNzIjoiTXlTdG9yZUFwaSIsImF1ZCI6Ik15U3RvcmVBcGlVc2VyIn0.VDbJe720WliuJMK3apsth6yz8sJoxRS4J-0k5zkEE0A"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:5000/api/Departament/departamentsGrade4"
+					},
+					"response": []
+				},
+				{
+					"name": "end11",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJzYXJhNzgiLCJqdGkiOiI0ODMzYzdlNy0wY2JkLTQzNWItYWJmNy05M2QwMzMyOWJhYzMiLCJlbWFpbCI6InNhcmFAZ21haWwuY29tIiwidWlkIjoiMiIsInJvbGVzIjoiQWRtaW5pc3RyYXRvciIsImV4cCI6MTY5NTgzMjk5NCwiaXNzIjoiTXlTdG9yZUFwaSIsImF1ZCI6Ik15U3RvcmVBcGlVc2VyIn0.VDbJe720WliuJMK3apsth6yz8sJoxRS4J-0k5zkEE0A"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:5000/api/Person/students2018_2019"
+					},
+					"response": []
+				},
+				{
+					"name": "end12",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJzYXJhNzgiLCJqdGkiOiI0ODMzYzdlNy0wY2JkLTQzNWItYWJmNy05M2QwMzMyOWJhYzMiLCJlbWFpbCI6InNhcmFAZ21haWwuY29tIiwidWlkIjoiMiIsInJvbGVzIjoiQWRtaW5pc3RyYXRvciIsImV4cCI6MTY5NTgzMjk5NCwiaXNzIjoiTXlTdG9yZUFwaSIsImF1ZCI6Ik15U3RvcmVBcGlVc2VyIn0.VDbJe720WliuJMK3apsth6yz8sJoxRS4J-0k5zkEE0A"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:5000/api/Teacher/allTeachersDep"
+					},
+					"response": []
+				},
+				{
+					"name": "end13",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJzYXJhNzgiLCJqdGkiOiI0ODMzYzdlNy0wY2JkLTQzNWItYWJmNy05M2QwMzMyOWJhYzMiLCJlbWFpbCI6InNhcmFAZ21haWwuY29tIiwidWlkIjoiMiIsInJvbGVzIjoiQWRtaW5pc3RyYXRvciIsImV4cCI6MTY5NTgzMjk5NCwiaXNzIjoiTXlTdG9yZUFwaSIsImF1ZCI6Ik15U3RvcmVBcGlVc2VyIn0.VDbJe720WliuJMK3apsth6yz8sJoxRS4J-0k5zkEE0A"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:5000/api/Teacher/teacherWithoutDepartament"
+					},
+					"response": []
+				},
+				{
+					"name": "end14",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJzYXJhNzgiLCJqdGkiOiI0ODMzYzdlNy0wY2JkLTQzNWItYWJmNy05M2QwMzMyOWJhYzMiLCJlbWFpbCI6InNhcmFAZ21haWwuY29tIiwidWlkIjoiMiIsInJvbGVzIjoiQWRtaW5pc3RyYXRvciIsImV4cCI6MTY5NTgzMjk5NCwiaXNzIjoiTXlTdG9yZUFwaSIsImF1ZCI6Ik15U3RvcmVBcGlVc2VyIn0.VDbJe720WliuJMK3apsth6yz8sJoxRS4J-0k5zkEE0A"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:5000/api/Person/teachersWithoutSubject"
+					},
+					"response": []
+				},
+				{
+					"name": "end15",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJzYXJhNzgiLCJqdGkiOiI0ODMzYzdlNy0wY2JkLTQzNWItYWJmNy05M2QwMzMyOWJhYzMiLCJlbWFpbCI6InNhcmFAZ21haWwuY29tIiwidWlkIjoiMiIsInJvbGVzIjoiQWRtaW5pc3RyYXRvciIsImV4cCI6MTY5NTgzMjk5NCwiaXNzIjoiTXlTdG9yZUFwaSIsImF1ZCI6Ik15U3RvcmVBcGlVc2VyIn0.VDbJe720WliuJMK3apsth6yz8sJoxRS4J-0k5zkEE0A"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:5000/api/Subject/withoutTeacher"
+					},
+					"response": []
+				},
+				{
+					"name": "end16",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJzYXJhNzgiLCJqdGkiOiI0ODMzYzdlNy0wY2JkLTQzNWItYWJmNy05M2QwMzMyOWJhYzMiLCJlbWFpbCI6InNhcmFAZ21haWwuY29tIiwidWlkIjoiMiIsInJvbGVzIjoiQWRtaW5pc3RyYXRvciIsImV4cCI6MTY5NTgzMjk5NCwiaXNzIjoiTXlTdG9yZUFwaSIsImF1ZCI6Ik15U3RvcmVBcGlVc2VyIn0.VDbJe720WliuJMK3apsth6yz8sJoxRS4J-0k5zkEE0A"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:5000/api/Departament/subjectDepartament"
+					},
+					"response": []
+				},
+				{
+					"name": "end17",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJzYXJhNzgiLCJqdGkiOiI0ODMzYzdlNy0wY2JkLTQzNWItYWJmNy05M2QwMzMyOWJhYzMiLCJlbWFpbCI6InNhcmFAZ21haWwuY29tIiwidWlkIjoiMiIsInJvbGVzIjoiQWRtaW5pc3RyYXRvciIsImV4cCI6MTY5NTgzMjk5NCwiaXNzIjoiTXlTdG9yZUFwaSIsImF1ZCI6Ik15U3RvcmVBcGlVc2VyIn0.VDbJe720WliuJMK3apsth6yz8sJoxRS4J-0k5zkEE0A"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:5000/api/Person/studentsBirthday1999"
+					},
+					"response": []
+				},
+				{
+					"name": "end18",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJzYXJhNzgiLCJqdGkiOiI0ODMzYzdlNy0wY2JkLTQzNWItYWJmNy05M2QwMzMyOWJhYzMiLCJlbWFpbCI6InNhcmFAZ21haWwuY29tIiwidWlkIjoiMiIsInJvbGVzIjoiQWRtaW5pc3RyYXRvciIsImV4cCI6MTY5NTgzMjk5NCwiaXNzIjoiTXlTdG9yZUFwaSIsImF1ZCI6Ik15U3RvcmVBcGlVc2VyIn0.VDbJe720WliuJMK3apsth6yz8sJoxRS4J-0k5zkEE0A"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:5000/api/Person/womanStudents"
+					},
+					"response": []
+				},
+				{
+					"name": "end19",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJzYXJhNzgiLCJqdGkiOiI0ODMzYzdlNy0wY2JkLTQzNWItYWJmNy05M2QwMzMyOWJhYzMiLCJlbWFpbCI6InNhcmFAZ21haWwuY29tIiwidWlkIjoiMiIsInJvbGVzIjoiQWRtaW5pc3RyYXRvciIsImV4cCI6MTY5NTgzMjk5NCwiaXNzIjoiTXlTdG9yZUFwaSIsImF1ZCI6Ik15U3RvcmVBcGlVc2VyIn0.VDbJe720WliuJMK3apsth6yz8sJoxRS4J-0k5zkEE0A"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:5000/api/Departament/teachersByDepartment"
+					},
+					"response": []
+				},
+				{
+					"name": "end20",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJzYXJhNzgiLCJqdGkiOiI0ODMzYzdlNy0wY2JkLTQzNWItYWJmNy05M2QwMzMyOWJhYzMiLCJlbWFpbCI6InNhcmFAZ21haWwuY29tIiwidWlkIjoiMiIsInJvbGVzIjoiQWRtaW5pc3RyYXRvciIsImV4cCI6MTY5NTgzMjk5NCwiaXNzIjoiTXlTdG9yZUFwaSIsImF1ZCI6Ik15U3RvcmVBcGlVc2VyIn0.VDbJe720WliuJMK3apsth6yz8sJoxRS4J-0k5zkEE0A"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:5000/api/Departament/teachersByDepartmentAll"
+					},
+					"response": []
+				},
+				{
+					"name": "end21",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJzYXJhNzgiLCJqdGkiOiI0ODMzYzdlNy0wY2JkLTQzNWItYWJmNy05M2QwMzMyOWJhYzMiLCJlbWFpbCI6InNhcmFAZ21haWwuY29tIiwidWlkIjoiMiIsInJvbGVzIjoiQWRtaW5pc3RyYXRvciIsImV4cCI6MTY5NTgzMjk5NCwiaXNzIjoiTXlTdG9yZUFwaSIsImF1ZCI6Ik15U3RvcmVBcGlVc2VyIn0.VDbJe720WliuJMK3apsth6yz8sJoxRS4J-0k5zkEE0A"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:5000/api/Grade/subjectsbyGrades"
+					},
+					"response": []
+				},
+				{
+					"name": "end22",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJzYXJhNzgiLCJqdGkiOiI0ODMzYzdlNy0wY2JkLTQzNWItYWJmNy05M2QwMzMyOWJhYzMiLCJlbWFpbCI6InNhcmFAZ21haWwuY29tIiwidWlkIjoiMiIsInJvbGVzIjoiQWRtaW5pc3RyYXRvciIsImV4cCI6MTY5NTgzMjk5NCwiaXNzIjoiTXlTdG9yZUFwaSIsImF1ZCI6Ik15U3RvcmVBcGlVc2VyIn0.VDbJe720WliuJMK3apsth6yz8sJoxRS4J-0k5zkEE0A"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:5000/api/Grade/more40subject"
+					},
+					"response": []
+				},
+				{
+					"name": "end23",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJzYXJhNzgiLCJqdGkiOiI0ODMzYzdlNy0wY2JkLTQzNWItYWJmNy05M2QwMzMyOWJhYzMiLCJlbWFpbCI6InNhcmFAZ21haWwuY29tIiwidWlkIjoiMiIsInJvbGVzIjoiQWRtaW5pc3RyYXRvciIsImV4cCI6MTY5NTgzMjk5NCwiaXNzIjoiTXlTdG9yZUFwaSIsImF1ZCI6Ik15U3RvcmVBcGlVc2VyIn0.VDbJe720WliuJMK3apsth6yz8sJoxRS4J-0k5zkEE0A"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:5000/api/Grade/subjectsTypeByGrades"
+					},
+					"response": []
+				},
+				{
+					"name": "end24",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJzYXJhNzgiLCJqdGkiOiI0ODMzYzdlNy0wY2JkLTQzNWItYWJmNy05M2QwMzMyOWJhYzMiLCJlbWFpbCI6InNhcmFAZ21haWwuY29tIiwidWlkIjoiMiIsInJvbGVzIjoiQWRtaW5pc3RyYXRvciIsImV4cCI6MTY5NTgzMjk5NCwiaXNzIjoiTXlTdG9yZUFwaSIsImF1ZCI6Ik15U3RvcmVBcGlVc2VyIn0.VDbJe720WliuJMK3apsth6yz8sJoxRS4J-0k5zkEE0A"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:5000/api/Schoolyear/studentsTuition/3"
+					},
+					"response": []
+				},
+				{
+					"name": "end25",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJzYXJhNzgiLCJqdGkiOiI0ODMzYzdlNy0wY2JkLTQzNWItYWJmNy05M2QwMzMyOWJhYzMiLCJlbWFpbCI6InNhcmFAZ21haWwuY29tIiwidWlkIjoiMiIsInJvbGVzIjoiQWRtaW5pc3RyYXRvciIsImV4cCI6MTY5NTgzMjk5NCwiaXNzIjoiTXlTdG9yZUFwaSIsImF1ZCI6Ik15U3RvcmVBcGlVc2VyIn0.VDbJe720WliuJMK3apsth6yz8sJoxRS4J-0k5zkEE0A"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:5000/api/Subject/subjectsByTeacher"
+					},
+					"response": []
+				},
+				{
+					"name": "end26",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJzYXJhNzgiLCJqdGkiOiI0ODMzYzdlNy0wY2JkLTQzNWItYWJmNy05M2QwMzMyOWJhYzMiLCJlbWFpbCI6InNhcmFAZ21haWwuY29tIiwidWlkIjoiMiIsInJvbGVzIjoiQWRtaW5pc3RyYXRvciIsImV4cCI6MTY5NTgzMjk5NCwiaXNzIjoiTXlTdG9yZUFwaSIsImF1ZCI6Ik15U3RvcmVBcGlVc2VyIn0.VDbJe720WliuJMK3apsth6yz8sJoxRS4J-0k5zkEE0A"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:5000/api/Person/youngestStudent"
+					},
+					"response": []
+				},
+				{
+					"name": "end27",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJzYXJhNzgiLCJqdGkiOiI0ODMzYzdlNy0wY2JkLTQzNWItYWJmNy05M2QwMzMyOWJhYzMiLCJlbWFpbCI6InNhcmFAZ21haWwuY29tIiwidWlkIjoiMiIsInJvbGVzIjoiQWRtaW5pc3RyYXRvciIsImV4cCI6MTY5NTgzMjk5NCwiaXNzIjoiTXlTdG9yZUFwaSIsImF1ZCI6Ik15U3RvcmVBcGlVc2VyIn0.VDbJe720WliuJMK3apsth6yz8sJoxRS4J-0k5zkEE0A"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:5000/api/Person/teachersWithoutDepartment"
+					},
+					"response": []
+				},
+				{
+					"name": "end28",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJzYXJhNzgiLCJqdGkiOiI0ODMzYzdlNy0wY2JkLTQzNWItYWJmNy05M2QwMzMyOWJhYzMiLCJlbWFpbCI6InNhcmFAZ21haWwuY29tIiwidWlkIjoiMiIsInJvbGVzIjoiQWRtaW5pc3RyYXRvciIsImV4cCI6MTY5NTgzMjk5NCwiaXNzIjoiTXlTdG9yZUFwaSIsImF1ZCI6Ik15U3RvcmVBcGlVc2VyIn0.VDbJe720WliuJMK3apsth6yz8sJoxRS4J-0k5zkEE0A"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:5000/api/Departament/departamentsWithoutTeachers"
+					},
+					"response": []
+				},
+				{
+					"name": "end29",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJzYXJhNzgiLCJqdGkiOiI0ODMzYzdlNy0wY2JkLTQzNWItYWJmNy05M2QwMzMyOWJhYzMiLCJlbWFpbCI6InNhcmFAZ21haWwuY29tIiwidWlkIjoiMiIsInJvbGVzIjoiQWRtaW5pc3RyYXRvciIsImV4cCI6MTY5NTgzMjk5NCwiaXNzIjoiTXlTdG9yZUFwaSIsImF1ZCI6Ik15U3RvcmVBcGlVc2VyIn0.VDbJe720WliuJMK3apsth6yz8sJoxRS4J-0k5zkEE0A"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:5000/api/Person/teachersWithOutSubject"
+					},
+					"response": []
+				},
+				{
+					"name": "end30",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJzYXJhNzgiLCJqdGkiOiI0ODMzYzdlNy0wY2JkLTQzNWItYWJmNy05M2QwMzMyOWJhYzMiLCJlbWFpbCI6InNhcmFAZ21haWwuY29tIiwidWlkIjoiMiIsInJvbGVzIjoiQWRtaW5pc3RyYXRvciIsImV4cCI6MTY5NTgzMjk5NCwiaXNzIjoiTXlTdG9yZUFwaSIsImF1ZCI6Ik15U3RvcmVBcGlVc2VyIn0.VDbJe720WliuJMK3apsth6yz8sJoxRS4J-0k5zkEE0A"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:5000/api/Subject/withoutTeacher"
+					},
+					"response": []
+				},
+				{
+					"name": "end31",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJzYXJhNzgiLCJqdGkiOiI0ODMzYzdlNy0wY2JkLTQzNWItYWJmNy05M2QwMzMyOWJhYzMiLCJlbWFpbCI6InNhcmFAZ21haWwuY29tIiwidWlkIjoiMiIsInJvbGVzIjoiQWRtaW5pc3RyYXRvciIsImV4cCI6MTY5NTgzMjk5NCwiaXNzIjoiTXlTdG9yZUFwaSIsImF1ZCI6Ik15U3RvcmVBcGlVc2VyIn0.VDbJe720WliuJMK3apsth6yz8sJoxRS4J-0k5zkEE0A"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:5000/api/Departament/departamentsWithoutSubjects"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
