@@ -39,6 +39,15 @@ public class SubjectRepository : GenericRepository<Subject>, ISubject
         return subjects;
     }
 
+    public async Task<IEnumerable<Subject>> GetSubjectsGrade4()
+    {
+        var subjects = await _context.Subjects
+                        .Include(o=>o.Grade)
+                        .Where(a=>a.Grade.Name == "Grado en Ingeniería Informática (Plan 2015)")
+                        .ToListAsync();
+        return subjects;
+    }
+
     //Devuelve un listado con el número de asignaturas que imparte cada profesor. El listado debe tener en cuenta aquellos profesores que no imparten ninguna asignatura. El resultado mostrará cinco columnas: id, nombre, primer apellido, segundo apellido y número de asignaturas. El resultado estará ordenado de mayor a menor por el número de asignaturas.
     public async Task<IEnumerable<object>> GetSubjectsByTeacher()
     {

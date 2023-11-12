@@ -95,7 +95,17 @@ public class TeacherController : ApiBaseController
         await this._unitOfWork.SaveAsync();
         return NoContent();
     }
+    //----------------- Endpoint 8------------------------
+    //Devuelve un listado de los `profesores` junto con el nombre del `departamento` al que están vinculados. El listado debe devolver cuatro columnas, `primer apellido, segundo apellido, nombre y nombre del departamento.` El resultado estará ordenado alfabéticamente de menor a mayor por los `apellidos y el nombre.`
 
+    [HttpGet("teacherAndDepartament")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<ActionResult<IEnumerable<object>>> GetTeacherAndDepartament()
+    {
+        var result = await _unitOfWork.Teachers.GetTeacherAndDepartament();
+        return Ok(result);
+    }
     
     
 }

@@ -108,7 +108,17 @@ public class SubjectController : ApiBaseController
         var result = await _unitOfWork.Subjects.GetSubjectsCourse3();
         return Ok(_mapper.Map<IEnumerable<SubjectOnlyDto>>(result));
     }
-
+    //----------------- Endpoint 7------------------------
+    //Devuelve un listado con todas las asignaturas ofertadas en el `Grado en Ingeniería Informática (Plan 2015)`.
+    [HttpGet("subjectsGrade4")]
+    [MapToApiVersion("1.0")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<ActionResult<IEnumerable<SubjectOnlyDto>>> GetSubjectsGrade4()
+    {
+        var result = await _unitOfWork.Subjects.GetSubjectsGrade4();
+        return Ok(_mapper.Map<IEnumerable<SubjectOnlyDto>>(result));
+    }
     //----------------- Endpoint 15 ------------------------
     //Devuelve un listado con las asignaturas que no tienen un profesor asignado.
     [HttpGet("withoutTeacher")]

@@ -112,8 +112,8 @@ public class PersonController : ApiBaseController
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<ActionResult<IEnumerable<PersonOnlyNameDto>>> GetAllStudents()
     {
-        var entities = await _unitOfWork.People.GetAllStudents();
-        return _mapper.Map<List<PersonOnlyNameDto>>(entities);
+        var result = await _unitOfWork.People.GetAllStudents();
+        return _mapper.Map<List<PersonOnlyNameDto>>(result);
     }
 
     //----------------- Endpoint 2 ------------------------
@@ -123,8 +123,8 @@ public class PersonController : ApiBaseController
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<ActionResult<IEnumerable<PersonOnlyNameDto>>> GetStudentsWithoutPhone()
     {
-        var entities = await _unitOfWork.People.GetStudentsWithoutPhone();
-        return _mapper.Map<List<PersonOnlyNameDto>>(entities);
+        var result = await _unitOfWork.People.GetStudentsWithoutPhone();
+        return _mapper.Map<List<PersonOnlyNameDto>>(result);
     }
 
     //----------------- Endpoint 3 ------------------------
@@ -134,8 +134,8 @@ public class PersonController : ApiBaseController
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<ActionResult<IEnumerable<PersonOnlyNameDto>>> GetStudents1999()
     {
-        var entities = await _unitOfWork.People.GetStudents1999();
-        return _mapper.Map<List<PersonOnlyNameDto>>(entities);
+        var result = await _unitOfWork.People.GetStudents1999();
+        return _mapper.Map<List<PersonOnlyNameDto>>(result);
     }
 
     //----------------- Endpoint 4 ------------------------
@@ -145,8 +145,8 @@ public class PersonController : ApiBaseController
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<ActionResult<IEnumerable<PersonOnlyNameDto>>> GetTeacherWithoutPhoneK()
     {
-        var entities = await _unitOfWork.People.GetTeacherWithoutPhoneK();
-        return _mapper.Map<List<PersonOnlyNameDto>>(entities);
+        var result = await _unitOfWork.People.GetTeacherWithoutPhoneK();
+        return _mapper.Map<List<PersonOnlyNameDto>>(result);
     }
     //----------------- Endpoint 6 ------------------------
     //Devuelve un listado con los datos de todas las **alumnas** que se han matriculado alguna vez en el `Grado en Ingeniería Informática (Plan 2015)
