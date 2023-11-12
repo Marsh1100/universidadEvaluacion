@@ -97,6 +97,18 @@ public class SubjectController : ApiBaseController
         return NoContent();
     }
 
+    //----------------- Endpoint 5 ------------------------
+    //Devuelve el listado de las asignaturas que se imparten en el primer cuatrimestre, en el tercer curso, del grado que tiene el identificador `7`.
+    [HttpGet("subjectsCourse3")]
+    [MapToApiVersion("1.0")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<ActionResult<IEnumerable<SubjectOnlyDto>>> GetSubjectsCourse3()
+    {
+        var result = await _unitOfWork.Subjects.GetSubjectsCourse3();
+        return Ok(_mapper.Map<IEnumerable<SubjectOnlyDto>>(result));
+    }
+
     //----------------- Endpoint 15 ------------------------
     //Devuelve un listado con las asignaturas que no tienen un profesor asignado.
     [HttpGet("withoutTeacher")]

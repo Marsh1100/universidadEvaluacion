@@ -39,3 +39,9 @@ public class SubjectWithoutTeacherDto
     public string Grade { get; set; }
 
 }
+
+public class SubjectOnlyDto
+{
+    public string Name { get; set; }
+
+}

@@ -148,6 +148,17 @@ public class PersonController : ApiBaseController
         var entities = await _unitOfWork.People.GetTeacherWithoutPhoneK();
         return _mapper.Map<List<PersonOnlyNameDto>>(entities);
     }
+    //----------------- Endpoint 6 ------------------------
+    //Devuelve un listado con los datos de todas las **alumnas** que se han matriculado alguna vez en el `Grado en Ingeniería Informática (Plan 2015)
+    [HttpGet("womansGrade")]
+    [MapToApiVersion("1.0")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<ActionResult<IEnumerable<PersonAllDto>>> GetWomansGrade()
+    {
+        var result = await _unitOfWork.People.GetWomansGrade();
+        return _mapper.Map<List<PersonAllDto>>(result);
+    }
 
     //----------------- Endpoint 14 ------------------------
     // Devuelve un listado con los profesores que no imparten ninguna asignatura.

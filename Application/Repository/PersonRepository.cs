@@ -46,14 +46,22 @@ public class PersonRepository : GenericRepository<Person>, IPerson
                             .ToListAsync();
         return (totalRegistros, registros);
     }
+    public async Task<IEnumerable<Person>> GetWomansGrade()
+    {
+        var students = await _context.Studenttuitions
+                        .Include(p=> p.Person).ThenInclude(e=> e.Gender)
+                        .Include(o=> o.Subject).ThenInclude(a=>a.Grade)
+                        .Where(p=> p.Person.IdGender == 2 && p.Subject.Grade.Name == "Grado en Ingeniería Informática (Plan 2015)")
+                        .Select(s=> s.Person).Distinct()
+                        .ToListAsync();
+        return students;
+    }
 
     public async Task<object> GetSbirthday1999()
     {
-        DateOnly year1999start = new(1999,1,1);
-        DateOnly year1999end = new(1999,12,31);
 
         var cant = await _context.People
-                    .Where(p=> p.Birthdate>= year1999start && p.Birthdate<= year1999end  && p.IdTypeperson ==1).CountAsync();
+                    .Where(p=> p.Birthdate.Year==1999 && p.IdTypeperson ==1).CountAsync();
         
         return new { Number_of_Students = cant};
     }

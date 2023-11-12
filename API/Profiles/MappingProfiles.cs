@@ -45,5 +45,8 @@ public class MappingProfiles : Profile
             .ReverseMap();
         CreateMap<Person, PersonOnlyNameDto>()
             .ReverseMap();
+        CreateMap<Subject, SubjectOnlyDto>()
+            .ReverseMap();
+
     }
 }

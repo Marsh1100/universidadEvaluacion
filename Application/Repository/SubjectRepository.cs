@@ -29,6 +29,16 @@ public class SubjectRepository : GenericRepository<Subject>, ISubject
         return (totalRegistros, registros);
     }
 
+    //Devuelve el listado de las asignaturas que se imparten en el primer cuatrimestre, en el tercer curso, del grado que tiene el identificador `7`.
+     public async Task<IEnumerable<Subject>> GetSubjectsCourse3()
+    {
+        var subjects = await _context.Subjects
+                        .Include(o=>o.Grade)
+                        .Where(a=>a.FourMonthPeriod == 1 && a.Course==3 && a.Grade.Id == 7)
+                        .ToListAsync();
+        return subjects;
+    }
+
     //Devuelve un listado con el número de asignaturas que imparte cada profesor. El listado debe tener en cuenta aquellos profesores que no imparten ninguna asignatura. El resultado mostrará cinco columnas: id, nombre, primer apellido, segundo apellido y número de asignaturas. El resultado estará ordenado de mayor a menor por el número de asignaturas.
     public async Task<IEnumerable<object>> GetSubjectsByTeacher()
     {

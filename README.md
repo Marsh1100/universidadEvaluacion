@@ -24,22 +24,22 @@ Una universidad busca implementar una base de datos para gestionar la informaci�
     http://localhost:5000/api/Person/TeacherWithoutPhoneK
     ```
 
-5. Devuelve el listado de las asignaturas que se imparten en el primer cuatrimestre, en el tercer curso del grado que tiene el identificador `7`.
+5. Devuelve el listado de las asignaturas que se imparten en el primer cuatrimestre, en el tercer curso, del grado que tiene el identificador `7`.
 
-    ```sql
-      # Consulta Aqui
+    ```
+      http://localhost:5000/api/Subject/subjectsCourse3
     ```
 
 6. Devuelve un listado con los datos de todas las **alumnas** que se han matriculado alguna vez en el `Grado en Ingeniería Informática (Plan 2015)`.
 
-    ```sql
-      # Consulta Aqui
+    ```
+    http://localhost:5000/api/Person/womansGrade
     ```
 
 7. Devuelve un listado con todas las asignaturas ofertadas en el `Grado en Ingeniería Informática (Plan 2015)`.
 
-    ```sql
-      # Consulta Aqui
+    ```
+    
     ```
 
 8. Devuelve un listado de los `profesores` junto con el nombre del `departamento` al que están vinculados. El listado debe devolver cuatro columnas, `primer apellido, segundo apellido, nombre y nombre del departamento.` El resultado estará ordenado alfabéticamente de menor a mayor por los `apellidos y el nombre.`
