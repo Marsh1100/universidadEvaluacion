@@ -11,5 +11,13 @@ namespace Domain.Interfaces;
     Task<IEnumerable<object>> GetTeachersWithoutDepartment();
 
     Task<IEnumerable<object>> GetTeachersWithOutSubject();
+    Task<IEnumerable<object>> GetTeachersWithoutSubject();
+    Task<IEnumerable<Person>> GetAllStudents();
+    Task<IEnumerable<Person>> GetStudentsWithoutPhone();
+
+    Task<IEnumerable<Person>> GetStudents1999();
+
+    Task<IEnumerable<Person>> GetTeacherWithoutPhoneK();
+
     }
 

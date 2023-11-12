@@ -43,5 +43,7 @@ public class MappingProfiles : Profile
         CreateMap<Person, PersonAllDto>()
             .ForMember(dest=>dest.Gender, origen=> origen.MapFrom(origen=> origen.Gender.Name))
             .ReverseMap();
+        CreateMap<Person, PersonOnlyNameDto>()
+            .ReverseMap();
     }
 }

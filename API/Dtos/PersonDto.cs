@@ -43,4 +43,11 @@ public class PersonAllDto
     public string Gender { get; set; }
 }
 
+public class PersonOnlyNameDto
+{
+    public string Name { get; set; }
+    public string Lastname1 { get; set; }
+    public string Lastname2 { get; set; }
+}
+
 

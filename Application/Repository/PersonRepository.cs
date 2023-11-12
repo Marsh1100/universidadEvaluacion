@@ -14,6 +14,24 @@ public class PersonRepository : GenericRepository<Person>, IPerson
        _context = context;
     }
 
+    public async Task<IEnumerable<object>> GetTeachersWithoutSubject()
+    {
+        var teachers = await _context.Teachers
+            .Where(d => d.Subjects.All(q => q == null))
+            .Select(p =>new
+                {
+                    p.Person.Lastname1,
+                    p.Person.Lastname2,
+                    p.Person.Name
+                }
+            ).OrderBy(p => p.Lastname1)
+            .ThenBy(p => p.Lastname2)
+            .ThenBy(p => p.Name)
+            .ToListAsync();
+
+        return teachers;
+    }
+
     public override async Task<(int totalRegistros, IEnumerable<Person> registros)> GetAllAsync(int pageIndex, int pageSize, string search)
     {
         var query = _context.People as IQueryable<Person>;
@@ -94,5 +112,43 @@ public class PersonRepository : GenericRepository<Person>, IPerson
                             Teacher = teacher.Person.Name + " " + teacher.Person.Lastname1+" "+ teacher.Person.Lastname2
                         };
         return result;
+    }
+
+    public async Task<IEnumerable<Person>> GetAllStudents()
+    {
+        var students = await _context.People
+            .Where(e => e.IdTypeperson == 1)
+            .OrderBy(p => p.Lastname1)
+            .ThenBy(p => p.Lastname2)
+            .ThenBy(p => p.Name)
+            .ToListAsync();
+        return students;
+    }
+
+    public async Task<IEnumerable<Person>> GetStudentsWithoutPhone()
+    {
+        var students = await _context.People
+            .Where(e => e.IdTypeperson == 1 && e.Phone == null)
+            .ToListAsync();
+
+        return students;
+    }
+
+    public async Task<IEnumerable<Person>> GetStudents1999()
+    {
+        var students = await _context.People
+                .Where(p => p.IdTypeperson == 1 && p.Birthdate.Year == 1999)
+                .ToListAsync();
+
+        return students;
+    }
+
+    public async Task<IEnumerable<Person>> GetTeacherWithoutPhoneK()
+    {
+        var teachers = await _context.People
+            .Where(n => n.IdTypeperson == 2 && n.Phone == null && n.Nit.EndsWith("K"))
+            .ToListAsync();
+
+        return teachers;
     }
 }

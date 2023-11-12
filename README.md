@@ -3,12 +3,86 @@ Una universidad busca implementar una base de datos para gestionar la informaci�
 
 1. Devuelve un listado con el primer apellido, segundo apellido y el nombre de todos los alumnos. El listado deberá estar ordenado alfabéticamente de menor a mayor por el primer apellido, segundo apellido y nombre.
 
+    ```
+    http://localhost:5000/api/Person/allStudents
+    ```
+2. Averigua el nombre y los dos apellidos de los alumnos que **no** han dado de alta su número de teléfono en la base de datos.
+
+    ```
+    http://localhost:5000/api/Person/studentsWithoutPhone
+    ```
+
+3. Devuelve el listado de los alumnos que nacieron en `1999`.
+
+    ```
+    http://localhost:5000/api/Person/Students1999
+    ```
+
+4. Devuelve el listado de `profesores` que **no** han dado de alta su número de teléfono en la base de datos y además su nif termina en `K`.
+
+    ```
+    http://localhost:5000/api/Person/TeacherWithoutPhoneK
+    ```
+
+5. Devuelve el listado de las asignaturas que se imparten en el primer cuatrimestre, en el tercer curso del grado que tiene el identificador `7`.
+
     ```sql
       # Consulta Aqui
     ```
-.
-.
 
+6. Devuelve un listado con los datos de todas las **alumnas** que se han matriculado alguna vez en el `Grado en Ingeniería Informática (Plan 2015)`.
+
+    ```sql
+      # Consulta Aqui
+    ```
+
+7. Devuelve un listado con todas las asignaturas ofertadas en el `Grado en Ingeniería Informática (Plan 2015)`.
+
+    ```sql
+      # Consulta Aqui
+    ```
+
+8. Devuelve un listado de los `profesores` junto con el nombre del `departamento` al que están vinculados. El listado debe devolver cuatro columnas, `primer apellido, segundo apellido, nombre y nombre del departamento.` El resultado estará ordenado alfabéticamente de menor a mayor por los `apellidos y el nombre.`
+
+    ```sql
+      # Consulta Aqui
+    ```
+
+9. Devuelve un listado con el nombre de las asignaturas, año de inicio y año de fin del curso escolar del alumno con nif `26902806M`.
+
+    ```sql
+      # Consulta Aqui
+    ```
+
+10. Devuelve un listado con el nombre de todos los departamentos que tienen profesores que imparten alguna asignatura en el `Grado en Ingeniería Informática (Plan 2015)`.
+
+     ```sql
+       # Consulta Aqui
+     ```
+
+11. Devuelve un listado con todos los alumnos que se han matriculado en alguna asignatura durante el curso escolar 2018/2019.
+
+     ```sql
+       # Consulta Aqui
+     ```
+
+12. Devuelve un listado con los nombres de **todos** los profesores y los departamentos que tienen vinculados. El listado también debe mostrar aquellos profesores que no tienen ningún departamento asociado. El listado debe devolver cuatro columnas, nombre del departamento, primer apellido, segundo apellido y nombre del profesor. El resultado estará ordenado alfabéticamente de menor a mayor por el nombre del departamento, apellidos y el nombre.
+
+     ```sql
+       # Consulta Aqui
+     ```
+
+13. Devuelve un listado con los profesores que no están asociados a un departamento.Devuelve un listado con los departamentos que no tienen profesores asociados.
+
+     ```sql
+       # Consulta Aqui
+     ```
+
+14. Devuelve un listado con los profesores que no imparten ninguna asignatura.
+
+     ```
+     http://localhost:5000/api/Person/teachersWithoutSubject
+     ```
 15. Devuelve un listado con las asignaturas que no tienen un profesor asignado. 
 
     ```

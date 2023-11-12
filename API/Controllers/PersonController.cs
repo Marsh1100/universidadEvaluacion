@@ -105,6 +105,61 @@ public class PersonController : ApiBaseController
         await this._unitOfWork.SaveAsync();
         return NoContent();
     }
+    //----------------- Endpoint 1 ------------------------
+    // Devuelve un listado con el primer apellido, segundo apellido y el nombre de todos los alumnos. El listado deberá estar ordenado alfabéticamente de menor a mayor por el primer apellido, segundo apellido y nombre.
+    [HttpGet("allStudents")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<ActionResult<IEnumerable<PersonOnlyNameDto>>> GetAllStudents()
+    {
+        var entities = await _unitOfWork.People.GetAllStudents();
+        return _mapper.Map<List<PersonOnlyNameDto>>(entities);
+    }
+
+    //----------------- Endpoint 2 ------------------------
+    // Averigua el nombre y los dos apellidos de los alumnos que **no** han dado de alta su número de teléfono en la base de datos.
+    [HttpGet("studentsWithoutPhone")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<ActionResult<IEnumerable<PersonOnlyNameDto>>> GetStudentsWithoutPhone()
+    {
+        var entities = await _unitOfWork.People.GetStudentsWithoutPhone();
+        return _mapper.Map<List<PersonOnlyNameDto>>(entities);
+    }
+
+    //----------------- Endpoint 3 ------------------------
+    //Devuelve el listado de los alumnos que nacieron en `1999`.    
+    [HttpGet("Students1999")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<ActionResult<IEnumerable<PersonOnlyNameDto>>> GetStudents1999()
+    {
+        var entities = await _unitOfWork.People.GetStudents1999();
+        return _mapper.Map<List<PersonOnlyNameDto>>(entities);
+    }
+
+    //----------------- Endpoint 4 ------------------------
+    // Devuelve el listado de `profesores` que **no** han dado de alta su número de teléfono en la base de datos y además su nif termina en `K`
+    [HttpGet("TeacherWithoutPhoneK")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<ActionResult<IEnumerable<PersonOnlyNameDto>>> GetTeacherWithoutPhoneK()
+    {
+        var entities = await _unitOfWork.People.GetTeacherWithoutPhoneK();
+        return _mapper.Map<List<PersonOnlyNameDto>>(entities);
+    }
+
+    //----------------- Endpoint 14 ------------------------
+    // Devuelve un listado con los profesores que no imparten ninguna asignatura.
+    [HttpGet("teachersWithoutSubject")]
+    [MapToApiVersion("1.0")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<ActionResult> GetTeachersWithoutSubject()
+    {
+        var result = await _unitOfWork.People.GetTeachersWithoutSubject();
+        return Ok(result);
+    }
     //----------------- Endpoint 17 ------------------------
     //Devuelve el número total de **alumnas** que hay.
     [HttpGet("womanStudents")]
