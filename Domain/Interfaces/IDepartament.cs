@@ -8,7 +8,7 @@ public interface IDepartament : IGenericRepository<Departament> {
     Task<IEnumerable<object>> GetTeachersByDepartment();
     Task<IEnumerable<object>> GetTeachersByDepartmentAll();
     Task<IEnumerable<object>> GetDepartamentsWithoutTeachers();
-
+    Task<IEnumerable<object>> GetDepartamentsWithoutSubjects();
     
 }
 

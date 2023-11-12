@@ -78,4 +78,21 @@ public class PersonRepository : GenericRepository<Person>, IPerson
                         .Distinct();
         return result;
     }
+
+    // Devuelve un listado con los profesores que tienen un departamento asociado y que no imparten ninguna asignatura.
+    public async Task<IEnumerable<object>> GetTeachersWithOutSubject()
+    {
+        var teachers = await _context.Teachers.Include(a=> a.Person).ToListAsync();
+        var subjects = await _context.Subjects.ToListAsync();
+
+        var result = from teacher in teachers
+                        join subject in subjects on teacher.Id equals subject.IdTeacher into h
+                        from all in h.DefaultIfEmpty()
+                        where all?.IdTeacher == null
+                        select new 
+                        {
+                            Teacher = teacher.Person.Name + " " + teacher.Person.Lastname1+" "+ teacher.Person.Lastname2
+                        };
+        return result;
+    }
 }

@@ -131,4 +131,22 @@ public class DepartamentRepository : GenericRepository<Departament>, IDepartamen
 
         return result;
     }
+
+    //Devuelve un listado con todos los departamentos que no han impartido asignaturas en ningún curso escolar.
+    public async Task<IEnumerable<object>> GetDepartamentsWithoutSubjects()
+    {
+        var tuitions = await _context.Studenttuitions.ToArrayAsync();
+        var subjects = await _context.Subjects.Include(a=>a.Teacher).ThenInclude(b=> b.Departament).ToListAsync();
+
+        var result = (from subject in subjects
+                        join tuition in tuitions on subject.Id equals tuition.IdSubject into h
+                        from all in h.DefaultIfEmpty()
+                        where all?.IdSubject == null && subject.IdTeacher != null
+                        select new {
+                            Departament = subject.Teacher.Departament.Name,
+                            idSubject =  all?.IdSubject ??  0
+                        }).Distinct();
+        return result;
+    }
+    
 }

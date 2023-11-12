@@ -156,6 +156,19 @@ public class DepartamentController : ApiBaseController
         var result = await _unitOfWork.Departaments.GetDepartamentsWithoutTeachers();
         return Ok(result);
     }
+
+    //--------------------- Endpoint 31 ---------------------------
+    //Devuelve un listado con todos los departamentos que no han impartido asignaturas en ningún curso escolar.
+    [HttpGet("departamentsWithoutSubjects")]
+    [MapToApiVersion("1.0")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<ActionResult> GetDepartamentsWithoutSubjects()
+    {
+        var result = await _unitOfWork.Departaments.GetDepartamentsWithoutSubjects();
+        return Ok(result);
+    }
+
     
     
 }

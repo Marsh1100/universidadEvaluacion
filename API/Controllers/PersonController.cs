@@ -150,4 +150,16 @@ public class PersonController : ApiBaseController
         var result = await _unitOfWork.People.GetTeachersWithoutDepartment();
         return Ok(result);
     }
+
+    //---------------------- Endpoint 29 ---------------------------
+    //Devuelve un listado con los profesores que tienen un departamento asociado y que no imparten ninguna asignatura.
+    [HttpGet("teachersWithOutSubject")]
+    [MapToApiVersion("1.0")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<ActionResult> GetTeachersWithOutSubject()
+    {
+        var result = await _unitOfWork.People.GetTeachersWithOutSubject();
+        return Ok(result);
+    }
 }

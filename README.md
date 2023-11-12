@@ -92,18 +92,18 @@ Una universidad busca implementar una base de datos para gestionar la informaci√
 
 29. Devuelve un listado con los profesores que tienen un departamento asociado y que no imparten ninguna asignatura.
 
-     ```sql
-       # Consulta Aqui
+     ```
+       http://localhost:5000/api/Person/teachersWithOutSubject
      ```
 
 30. Devuelve un listado con las asignaturas que no tienen un profesor asignado.
 
-     ```sql
-       # Consulta Aqui
+     ```
+     http://localhost:5000/api/Subject/withoutTeacher
      ```
 
 31. Devuelve un listado con todos los departamentos que no han impartido asignaturas en ning√∫n curso escolar.
 
-     ```sql
-       # Consulta Aqui
+     ```
+     http://localhost:5000/api/Departament/departamentsWithoutSubjects
      ```
