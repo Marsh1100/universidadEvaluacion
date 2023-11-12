@@ -88,6 +88,25 @@ public class PersonRepository : GenericRepository<Person>, IPerson
 
         return student;
     }
+    public async Task<object> GetStudentNif()
+    {
+        var student = await _context.Studenttuitions
+                        .Include(a=> a.Person)
+                        .Include(b=> b.Schoolyear)
+                        .Include(c=> c.Subject)
+                        .Where(d=> d.Person.Nit == "26902806M")
+                        .Select(s=> new
+                        {
+                            Subjects = s.Subject.Name,
+                            Start_year = s.Schoolyear.YearStart,
+                            End_year = s.Schoolyear.YearEnd
+
+                        })
+                        .ToListAsync();
+
+        return student;
+    }
+
 
     public async Task<IEnumerable<object>> GetTeachersWithoutDepartment()
     {

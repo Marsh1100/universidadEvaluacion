@@ -99,6 +99,18 @@ public class DepartamentController : ApiBaseController
         await this._unitOfWork.SaveAsync();
         return NoContent();
     }
+    //----------------- Endpoint 10 ------------------------
+    //Devuelve un listado con el nombre de todos los departamentos que tienen profesores que imparten alguna asignatura en el `Grado en Ingeniería Informática (Plan 2015)
+    [HttpGet("departamentsGrade4")]
+    [MapToApiVersion("1.0")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<ActionResult> GetDepartamentsGrade4()
+    {
+        var result = await _unitOfWork.Departaments.GetDepartamentsGrade4();
+        return Ok(result);
+    }
+
     //----------------- Endpoint 16 ------------------------
     //Devuelve un listado con todos los departamentos que tienen alguna asignatura que no se haya impartido en ningún curso escolar. El resultado debe mostrar el nombre del departamento y el nombre de la asignatura que no se haya impartido nunca.
     [HttpGet("subjectDepartament")]

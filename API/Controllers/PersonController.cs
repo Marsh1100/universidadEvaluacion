@@ -159,6 +159,18 @@ public class PersonController : ApiBaseController
         var result = await _unitOfWork.People.GetWomansGrade();
         return _mapper.Map<List<PersonAllDto>>(result);
     }
+    //----------------- Endpoint 9 ------------------------
+    //Devuelve un listado con el nombre de las asignaturas, año de inicio y año de fin del curso escolar del alumno con nif `26902806M`.
+    [HttpGet("studentNif")]
+    [MapToApiVersion("1.0")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<ActionResult<object>> GetStudentNif()
+    {
+        var result = await _unitOfWork.People.GetStudentNif();
+        return Ok(result);
+    }
+
 
     //----------------- Endpoint 14 ------------------------
     // Devuelve un listado con los profesores que no imparten ninguna asignatura.

@@ -15,7 +15,7 @@ public class DepartamentRepository : GenericRepository<Departament>, IDepartamen
        _context = context;
        
     }
-
+    
     public override async Task<(int totalRegistros, IEnumerable<Departament> registros)> GetAllAsync(int pageIndex, int pageSize, string search)
     {
         var query = _context.Departaments as IQueryable<Departament>;
@@ -31,6 +31,19 @@ public class DepartamentRepository : GenericRepository<Departament>, IDepartamen
         return (totalRegistros, registros);
     }
 
+    //Devuelve un listado con el nombre de todos los departamentos que tienen profesores que imparten alguna asignatura en el `Grado en Ingeniería Informática (Plan 2015)
+    public async Task<IEnumerable<object>> GetDepartamentsGrade4()
+    {
+        var departaments = await _context.Subjects
+                            .Include(g=> g.Grade)
+                            .Include(d=> d.Teacher).ThenInclude(a=>a.Departament)
+                            .Where(b=> b.Grade.Name == "Grado en Ingeniería Informática (Plan 2015)")
+                            .Select(s=> new{
+                                Departament = s.Teacher.Departament.Name
+                            }).Distinct()
+                            .ToListAsync();
+        return departaments;
+    }
     public async Task<IEnumerable<object>> GetDepartamentsWithoutTeachers()
     {
         var teachers = await _context.Teachers.ToListAsync();

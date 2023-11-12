@@ -50,14 +50,14 @@ Una universidad busca implementar una base de datos para gestionar la informaci�
 
 9. Devuelve un listado con el nombre de las asignaturas, año de inicio y año de fin del curso escolar del alumno con nif `26902806M`.
 
-    ```sql
-      # Consulta Aqui
+    ```
+    http://localhost:5000/api/Person/studentNif
     ```
 
 10. Devuelve un listado con el nombre de todos los departamentos que tienen profesores que imparten alguna asignatura en el `Grado en Ingeniería Informática (Plan 2015)`.
 
-     ```sql
-       # Consulta Aqui
+     ```
+     http://localhost:5000/api/Departament/departamentsGrade4
      ```
 
 11. Devuelve un listado con todos los alumnos que se han matriculado en alguna asignatura durante el curso escolar 2018/2019.
